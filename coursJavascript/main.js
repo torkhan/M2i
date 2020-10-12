@@ -99,12 +99,45 @@ const tab = ["toto", 10, true, ["t", "o"]]
 //     console.log("bonjour "+nom)
 // })("toto")
 
-const addition = (...nombres) => {
-    let total = 0
-    for(let nombre of nombres) {
-        total += nombre
+// const addition = (nombres) => {
+//     let total = 0
+//     for(let nombre of nombres) {
+//         total += nombre
+//     }
+//     return total
+// }
+// const soustraction = (...nombres) => {
+//     let total = (nombres != undefined && nombres.length > 0) ? nombres[0] : 0
+//     for(let i =1 ; i< nombres.length; i++) {
+//         total -= nombres[i]
+//     }
+//     return total
+// }
+// const calcule = (methodeCalcule, ...nombres) => {
+//     console.log(methodeCalcule(nombres))
+// }
+// calcule(addition, 10,30,40)
+
+//les objets
+const personne = {
+    //Attribut nom
+    nom : "abadi",
+    //Attribut prenom
+    prenom : "ihab",
+    //méthode afficher
+    afficher : function(){
+        console.log("les infromations de la personne sont "+this.nom +" "+this.prenom)
     }
-    return total
 }
 
-console.log(addition(10,20, 30, 5))
+// console.log(personne.nom)
+// console.log(personne.prenom)
+// personne.nom = "toto"
+// personne.adresse = "Tourcoing"
+// console.log(personne.adresse)
+personne.marcher = function(destination) {
+    console.log(this.nom + " marche vers "+ destination)
+}
+personne.afficher()
+personne.marcher("Lille")
+

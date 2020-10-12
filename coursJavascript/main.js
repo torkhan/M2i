@@ -141,3 +141,4 @@ personne.marcher = function(destination) {
 personne.afficher()
 personne.marcher("Lille")
 
+

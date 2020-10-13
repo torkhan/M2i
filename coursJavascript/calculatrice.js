@@ -31,14 +31,104 @@ div.innerHTML = rendu
 
 div.addEventListener('click',clickBouton)
 
+let firstNumber = true
+let lastOperation = undefined
+let hiddenScreenValue = undefined
 function clickBouton(e) {
     //Slectionner l'ecran par la class  ecran
     const ecran = document.querySelector(".ecran")
     //type de l'evenement est accessible dans  par l'attribut type du paramètre (e)
     //Element déclencheur de l'event est accessible par l'attribut target du paramètre (e)
     //Accéder au type du déclencheur de l'event par l'attribut localName du target
+    //Si l'élément est un bouton
     if(e.target.localName == "button") {
-        ecran.innerText = e.target.innerText
+        const valueButton = e.target.innerText
+        //Si la valeur du bouton est un chiffre
+        if(!isNaN(valueButton)) {
+            //Si premier chiffre on ecrase la valeur de l'ecran avec le nouveau
+            if(firstNumber) {
+                ecran.innerText = valueButton
+                firstNumber = false
+            }
+            //sinon on ajouter le chiffre au nombre déjà sur l'ecran
+            else {
+                ecran.innerText += valueButton
+            }
+        }
+
+        else {
+            switch(valueButton) {
+                case '+':
+                    //si premiere operation
+                    if(lastOperation == undefined) {
+                        hiddenScreenValue = parseFloat(ecran.innerText)
+                    }
+                    // si une opération avant à effecuter 
+                    else {
+                       //on effecture l'operation en fonction du type de l'opération 
+                       switch(lastOperation) {
+                            case '+':
+                                hiddenScreenValue = hiddenScreenValue + parseFloat(ecran.innerText)
+                                ecran.innerText = hiddenScreenValue
+                                break;
+                            case '-':
+                                hiddenScreenValue = hiddenScreenValue - parseFloat(ecran.innerText)
+                                ecran.innerText = hiddenScreenValue
+                                break;
+                            case 'X':
+                                hiddenScreenValue = hiddenScreenValue * parseFloat(ecran.innerText)
+                                ecran.innerText = hiddenScreenValue
+                                break;
+                            case '/':
+                                hiddenScreenValue = hiddenScreenValue / parseFloat(ecran.innerText)
+                                ecran.innerText = hiddenScreenValue
+                                break;
+                       } 
+                    }
+                    lastOperation = '+'
+                    break;
+                case '-':
+                    //si premiere operation
+                    if(lastOperation == undefined) {
+                        hiddenScreenValue = parseFloat(ecran.innerText)
+                    }
+                    // si une opération avant à effecuter 
+                    else {
+                       //on effecture l'operation en fonction du type de l'opération 
+                       switch(lastOperation) {
+                            case '+':
+                                hiddenScreenValue = hiddenScreenValue + parseFloat(ecran.innerText)
+                                ecran.innerText = hiddenScreenValue
+                                break;
+                            case '-':
+                                hiddenScreenValue = hiddenScreenValue - parseFloat(ecran.innerText)
+                                ecran.innerText = hiddenScreenValue
+                                break;
+                            case 'X':
+                                hiddenScreenValue = hiddenScreenValue * parseFloat(ecran.innerText)
+                                ecran.innerText = hiddenScreenValue
+                                break;
+                            case '/':
+                                hiddenScreenValue = hiddenScreenValue / parseFloat(ecran.innerText)
+                                ecran.innerText = hiddenScreenValue
+                                break;
+                       } 
+                    }
+                    lastOperation = '-'
+                    break;
+                case '=':
+
+                    break;
+                case 'C':
+
+                    break;
+                default:
+
+                    break;
+            }
+            firstNumber = true
+        }
+        
     }
     
 }

@@ -4,7 +4,7 @@
 //slectionner des doms 
 //la méthode querySelector et querySelectorAll
 
-// const objetH1 = document.querySelector("h1")
+ const objetH1 = document.querySelector("h1")
 // objetH1.innerText = "Un titre h1 ajouté en javascript"
 // //Ajouter 5 boutons dans une div avec class row
 // const row = document.querySelector(".container .row")
@@ -34,3 +34,29 @@ console.log(lien.classList)
 //ajouter une classe au noeux dom
 lien.classList.add('class4', 'class5')
 console.log(lien.classList)
+
+//Ecouter un evenement
+objetH1.addEventListener('click', fonctionClick)
+//objetH1.onclick = fonctionClick
+
+//Ecouter l'événement click sur chaque bouton
+// const boutons = document.querySelectorAll("button")
+// boutons.forEach(b => {
+//     b.addEventListener('click', fonctionClick)
+// })
+//<=>
+const divButtons = document.querySelector(".container-button")
+divButtons.addEventListener('click', fonctionClick)
+divButtons.addEventListener('dblclick', fonctionClick)
+
+function fonctionClick(event)
+{
+    //pour acceder à l'element qui démarre l'event => on utilise la propriété target du paramètre passé à la méthode
+   // console.log(event)
+    if(event.type == "click") {
+        console.log(event.target.innerText)
+    }
+    else if(event.type == "dblclick") {
+        alert(event.target.innerText)        
+    }
+}

@@ -1,3 +1,12 @@
 .orange {
     background-color: orange;
 }
+.ecran {
+    background-color: black;
+    font-size: 30px;
+    color: white;
+    text-align: right;
+}
+.calculatrice-container .btn {
+    border-radius: 0;
+}

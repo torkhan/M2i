@@ -2,6 +2,7 @@ const tab = ['C', '+/-', '%', '/', '7', '8', '9', 'X' , '4', '5', '6', '-', '1',
 const div = document.querySelector(".calculatrice-container")
 //Html de la calculatrice
 let rendu = ""
+rendu += "<div class='row'><div class='col ecran'>0</div></div>"
 let ligne = "<div class='row'>"
 let k = 0
 for(let i=0; i < tab.length; i++) {

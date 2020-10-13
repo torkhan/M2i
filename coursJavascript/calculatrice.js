@@ -66,24 +66,7 @@ function clickBouton(e) {
                     // si une opération avant à effecuter 
                     else {
                        //on effecture l'operation en fonction du type de l'opération 
-                       switch(lastOperation) {
-                            case '+':
-                                hiddenScreenValue = hiddenScreenValue + parseFloat(ecran.innerText)
-                                ecran.innerText = hiddenScreenValue
-                                break;
-                            case '-':
-                                hiddenScreenValue = hiddenScreenValue - parseFloat(ecran.innerText)
-                                ecran.innerText = hiddenScreenValue
-                                break;
-                            case 'X':
-                                hiddenScreenValue = hiddenScreenValue * parseFloat(ecran.innerText)
-                                ecran.innerText = hiddenScreenValue
-                                break;
-                            case '/':
-                                hiddenScreenValue = hiddenScreenValue / parseFloat(ecran.innerText)
-                                ecran.innerText = hiddenScreenValue
-                                break;
-                       } 
+                       secondSwitch(lastOperation, ecran)
                     }
                     lastOperation = '+'
                     break;
@@ -95,24 +78,7 @@ function clickBouton(e) {
                     // si une opération avant à effecuter 
                     else {
                        //on effecture l'operation en fonction du type de l'opération 
-                       switch(lastOperation) {
-                            case '+':
-                                hiddenScreenValue = hiddenScreenValue + parseFloat(ecran.innerText)
-                                ecran.innerText = hiddenScreenValue
-                                break;
-                            case '-':
-                                hiddenScreenValue = hiddenScreenValue - parseFloat(ecran.innerText)
-                                ecran.innerText = hiddenScreenValue
-                                break;
-                            case 'X':
-                                hiddenScreenValue = hiddenScreenValue * parseFloat(ecran.innerText)
-                                ecran.innerText = hiddenScreenValue
-                                break;
-                            case '/':
-                                hiddenScreenValue = hiddenScreenValue / parseFloat(ecran.innerText)
-                                ecran.innerText = hiddenScreenValue
-                                break;
-                       } 
+                       secondSwitch(lastOperation, ecran)
                     }
                     lastOperation = '-'
                     break;
@@ -120,7 +86,10 @@ function clickBouton(e) {
 
                     break;
                 case 'C':
-
+                    firstNumber = true
+                    lastOperation = undefined
+                    hiddenScreenValue = undefined
+                    ecran.innerText = 0
                     break;
                 default:
 
@@ -131,4 +100,26 @@ function clickBouton(e) {
         
     }
     
+}
+
+function secondSwitch(lastOperation, ecran)
+{
+    switch(lastOperation) {
+        case '+':
+            hiddenScreenValue = hiddenScreenValue + parseFloat(ecran.innerText)
+            ecran.innerText = hiddenScreenValue
+            break;
+        case '-':
+            hiddenScreenValue = hiddenScreenValue - parseFloat(ecran.innerText)
+            ecran.innerText = hiddenScreenValue
+            break;
+        case 'X':
+            hiddenScreenValue = hiddenScreenValue * parseFloat(ecran.innerText)
+            ecran.innerText = hiddenScreenValue
+            break;
+        case '/':
+            hiddenScreenValue = hiddenScreenValue / parseFloat(ecran.innerText)
+            ecran.innerText = hiddenScreenValue
+            break;
+   } 
 }

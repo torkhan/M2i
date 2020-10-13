@@ -51,12 +51,15 @@ divButtons.addEventListener('dblclick', fonctionClick)
 
 function fonctionClick(event)
 {
+    if(event.target.localName == "button") {
     //pour acceder à l'element qui démarre l'event => on utilise la propriété target du paramètre passé à la méthode
-   // console.log(event)
+    console.log(event.target.localName)
     if(event.type == "click") {
         console.log(event.target.innerText)
     }
     else if(event.type == "dblclick") {
         alert(event.target.innerText)        
     }
+    }
+    
 }

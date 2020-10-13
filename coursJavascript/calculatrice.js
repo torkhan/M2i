@@ -26,3 +26,19 @@ for(let i=0; i < tab.length; i++) {
     }
 }
 div.innerHTML = rendu
+
+//Ecouter l'evenement click
+
+div.addEventListener('click',clickBouton)
+
+function clickBouton(e) {
+    //Slectionner l'ecran par la class  ecran
+    const ecran = document.querySelector(".ecran")
+    //type de l'evenement est accessible dans  par l'attribut type du paramètre (e)
+    //Element déclencheur de l'event est accessible par l'attribut target du paramètre (e)
+    //Accéder au type du déclencheur de l'event par l'attribut localName du target
+    if(e.target.localName == "button") {
+        ecran.innerText = e.target.innerText
+    }
+    
+}

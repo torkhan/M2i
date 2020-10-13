@@ -63,3 +63,5 @@ function fonctionClick(event)
     }
     
 }
+
+console.log(isNaN("15"))

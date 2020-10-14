@@ -65,15 +65,49 @@ function testWinRow(joueur) {
     }
 }
 
-function testWinCol()
+function testWinCol(joueur)
 {
-
+    for(let i=1; i<=3; i++) {
+        const casesCol = document.querySelectorAll(".morpion .col[data-j='"+i+"']")
+        //On compare les valeurs de chaque case en utilisant une boucle for par exemple
+        let win = true
+        for(let c of casesCol) {
+            if(c.innerText != joueur) {
+                win = false
+                break
+            }
+        }
+        if(win) {
+            alert("Bravo le joueur "+ joueur+ " a gagné" )
+        }
+    }
 }
 
-function testWinDiag() {
-
+function testWinDiag(joueur) {
+    const casesDiag = document.querySelectorAll(".morpion .col[data-d='1']")
+    let win = true
+    for(let c of casesDiag) {
+        if(c.innerText != joueur) {
+            win = false
+            break
+        }
+    }
+    if(win) {
+        alert("Bravo le joueur "+ joueur+ " a gagné" )
+    }
+    
 }
 
-function testWinReverseDiag() {
-
+function testWinReverseDiag(joueur) {
+    const casesDiag = document.querySelectorAll(".morpion .col[data-d='2']")
+    let win = true
+    for(let c of casesDiag) {
+        if(c.innerText != joueur) {
+            win = false
+            break
+        }
+    }
+    if(win) {
+        alert("Bravo le joueur "+ joueur+ " a gagné" )
+    }
 }

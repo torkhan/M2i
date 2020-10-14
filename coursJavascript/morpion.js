@@ -20,11 +20,13 @@ function clickCase(e) {
             //        maCase.innerText = "O"
             //    }
             maCase.innerText = (firstPlayer) ? 'X' : 'O'
+            testWin(maCase.innerText)
             firstPlayer = !firstPlayer
             nbreCaseRempli++
             if(nbreCaseRempli == maxCase) {
                 btnStart.style.display = "block"
             }
+
         } 
     }
 }
@@ -37,4 +39,41 @@ function clearCase(e) {
     }
     e.target.style.display = "none"
     nbreCaseRempli = 0
+}
+
+function testWin(joueur) {
+    testWinRow(joueur)
+    testWinCol(joueur)
+    testWinDiag(joueur)
+    testWinReverseDiag(joueur)
+}
+
+function testWinRow(joueur) {
+    for(let i=1; i<=3; i++) {
+        const casesRow = document.querySelectorAll(".morpion .col[data-i='"+i+"']")
+        //On compare les valeurs de chaque case en utilisant une boucle for par exemple
+        let win = true
+        for(let c of casesRow) {
+            if(c.innerText != joueur) {
+                win = false
+                break
+            }
+        }
+        if(win) {
+            alert("Bravo le joueur "+ joueur+ " a gagné" )
+        }
+    }
+}
+
+function testWinCol()
+{
+
+}
+
+function testWinDiag() {
+
+}
+
+function testWinReverseDiag() {
+
 }

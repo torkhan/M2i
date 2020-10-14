@@ -42,66 +42,98 @@ function clearCase(e) {
 }
 
 function testWin(joueur) {
-    testWinRow(joueur)
-    testWinCol(joueur)
-    testWinDiag(joueur)
-    testWinReverseDiag(joueur)
+    // testWinRow(joueur)
+    // testWinCol(joueur)
+    testWinRowCol(joueur, 'i')
+    testWinRowCol(joueur, 'j')
+    // testWinDiag(joueur)
+    // testWinReverseDiag(joueur)
+    testWinDiag(joueur, '1')
+    testWinDiag(joueur, '2')
 }
 
-function testWinRow(joueur) {
-    for(let i=1; i<=3; i++) {
-        const casesRow = document.querySelectorAll(".morpion .col[data-i='"+i+"']")
-        //On compare les valeurs de chaque case en utilisant une boucle for par exemple
-        let win = true
-        for(let c of casesRow) {
-            if(c.innerText != joueur) {
-                win = false
-                break
-            }
-        }
-        if(win) {
-            alert("Bravo le joueur "+ joueur+ " a gagné" )
-        }
-    }
-}
+// function testWinRow(joueur) {
+//     for(let i=1; i<=3; i++) {
+//         const casesRow = document.querySelectorAll(".morpion .col[data-i='"+i+"']")
+//         //On compare les valeurs de chaque case en utilisant une boucle for par exemple
+//         let win = true
+//         for(let c of casesRow) {
+//             if(c.innerText != joueur) {
+//                 win = false
+//                 break
+//             }
+//         }
+//         if(win) {
+//             alert("Bravo le joueur "+ joueur+ " a gagné" )
+//         }
+//     }
+// }
 
-function testWinCol(joueur)
+// function testWinCol(joueur)
+// {
+//     for(let i=1; i<=3; i++) {
+//         const casesCol = document.querySelectorAll(".morpion .col[data-j='"+i+"']")
+//         //On compare les valeurs de chaque case en utilisant une boucle for par exemple
+//         let win = true
+//         for(let c of casesCol) {
+//             if(c.innerText != joueur) {
+//                 win = false
+//                 break
+//             }
+//         }
+//         if(win) {
+//             alert("Bravo le joueur "+ joueur+ " a gagné" )
+//         }
+//     }
+// }
+
+
+
+// function testWinDiag(joueur) {
+//     const casesDiag = document.querySelectorAll(".morpion .col[data-d='1']")
+//     let win = true
+//     for(let c of casesDiag) {
+//         if(c.innerText != joueur) {
+//             win = false
+//             break
+//         }
+//     }
+//     if(win) {
+//         alert("Bravo le joueur "+ joueur+ " a gagné" )
+//     }
+// }
+
+// function testWinReverseDiag(joueur) {
+//     const casesDiag = document.querySelectorAll(".morpion .col[data-d='2']")
+//     let win = true
+//     for(let c of casesDiag) {
+//         if(c.innerText != joueur) {
+//             win = false
+//             break
+//         }
+//     }
+//     if(win) {
+//         alert("Bravo le joueur "+ joueur+ " a gagné" )
+//     }
+// }
+
+function testWinRowCol(joueur, ax)
 {
     for(let i=1; i<=3; i++) {
-        const casesCol = document.querySelectorAll(".morpion .col[data-j='"+i+"']")
+        const cases = document.querySelectorAll(".morpion .col[data-"+ax+"='"+i+"']")
         //On compare les valeurs de chaque case en utilisant une boucle for par exemple
-        let win = true
-        for(let c of casesCol) {
-            if(c.innerText != joueur) {
-                win = false
-                break
-            }
-        }
-        if(win) {
-            alert("Bravo le joueur "+ joueur+ " a gagné" )
-        }
+        testCases(cases)
     }
 }
 
-function testWinDiag(joueur) {
-    const casesDiag = document.querySelectorAll(".morpion .col[data-d='1']")
-    let win = true
-    for(let c of casesDiag) {
-        if(c.innerText != joueur) {
-            win = false
-            break
-        }
-    }
-    if(win) {
-        alert("Bravo le joueur "+ joueur+ " a gagné" )
-    }
-    
+function testWinDiag(joueur, diag) {
+    const casesDiag = document.querySelectorAll(".morpion .col[data-d='"+diag+"']")
+    testCases(casesDiag)
 }
 
-function testWinReverseDiag(joueur) {
-    const casesDiag = document.querySelectorAll(".morpion .col[data-d='2']")
+function testCases(cases) {
     let win = true
-    for(let c of casesDiag) {
+    for(let c of cases) {
         if(c.innerText != joueur) {
             win = false
             break
@@ -111,3 +143,11 @@ function testWinReverseDiag(joueur) {
         alert("Bravo le joueur "+ joueur+ " a gagné" )
     }
 }
+
+//Ajouter des attributs dynamiquement 
+
+// const cases = document.querySelectorAll(".morpion .col")
+
+// for(let i=0 ;i < cases.length; i++)  {
+//     cases[i].setAttribute("data-i", i)
+// }

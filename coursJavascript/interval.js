@@ -14,9 +14,10 @@ btn.addEventListener('click',function(e) {
     let directionX = "R"
     let directionY = 'B'
     let posY = 0
+    let vitesse = 10
     setInterval(() => {
         posX = (directionX == "R") ? posX + 1 : posX - 1 
-        if(posX == 400) {
+        if(posX == 600) {
             directionX = "L"
         }
         if(posX == 0) {
@@ -33,5 +34,5 @@ btn.addEventListener('click',function(e) {
         // carre.style.transform = "translateX("+pos+"px)"
         // carre.style.transform = "translateY("+pos+"px)"
         carre.style.transform = "translate("+posX+"px, "+posY+"px)"
-    },10)
+    },vitesse)
 })

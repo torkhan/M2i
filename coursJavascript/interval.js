@@ -12,6 +12,7 @@ const btn = document.querySelector('.start')
 btn.addEventListener('click',function(e) {
     let posX = 0
     let directionX = "R"
+    let directionY = 'B'
     let posY = 0
     setInterval(() => {
         posX = (directionX == "R") ? posX + 1 : posX - 1 
@@ -20,6 +21,13 @@ btn.addEventListener('click',function(e) {
         }
         if(posX == 0) {
             directionX = "R"
+        }
+        posY = (directionY == "B") ? posY + 1 : posY - 1
+        if(posY == 400) {
+            directionY = "T"
+        }
+        if(posY == 0) {
+            directionY = "B"
         }
         //posY+= 1
         // carre.style.transform = "translateX("+pos+"px)"

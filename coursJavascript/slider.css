@@ -6,4 +6,5 @@
 .enfant {
     width: 2750px;
     height: 300px;
+    transition: transform 400ms;
 }

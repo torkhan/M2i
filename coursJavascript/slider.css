@@ -1,0 +1,9 @@
+.parent {
+    overflow: hidden;
+    width: 900px;
+    height: 300px;
+}
+.enfant {
+    width: 2750px;
+    height: 300px;
+}

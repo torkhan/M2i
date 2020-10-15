@@ -100,8 +100,14 @@ const displayByClass = (classe) => {
   const nav = document.querySelector(".navbar-nav")
   nav.addEventListener('click', function(e) {
     e.preventDefault()
-    const href = e.target.getAttribute('href')
-    hideSections()
-    displayByClass(href)
+    if(e.target.localName =="a") {
+        const href = e.target.getAttribute('href')
+        hideSections()
+        displayByClass(href)
+    }
+    
   })
+
+
  startForm()
+ hideSections()

@@ -1,0 +1,10 @@
+Réaliser un formulaire qui permet d'ajouter un produit, un produit est caractérisé par titre, prix, description, url image.
+Le produit peut être ajouter dans un tableau de produits.
+
+Après l'ajout du produit, on cache le formulaire et on affiche la liste liste des produits sous forme
+
+<========>
+image
+titre Produit
+prix
+

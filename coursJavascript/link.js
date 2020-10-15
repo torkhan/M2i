@@ -40,6 +40,8 @@ monForm.addEventListener('submit',function(e) {
     if(errors.length == 0) {
         data[champTitre.value] = champContenu.value
         link.innerHTML+= `<a href='${champTitre.value}'>${champTitre.value}</a>`
+        champTitre.value = ""
+        champContenu.value = ""
     }
     else {
         let contenuError = "<div class='alert alert-danger'>"

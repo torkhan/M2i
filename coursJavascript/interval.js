@@ -15,28 +15,57 @@ btn.addEventListener('click',function(e) {
     let directionX = "R"
     let directionY = 'B'
     let posY = 0
-    let vitesse = 10
-    setInterval(() => {
+    let vitesse = 30
+    // setInterval(() => {
+    //     posX = (directionX == "R") ? posX + 1 : posX - 1 
+    //     if(posX == 600) {
+    //         directionX = "L"
+    //     }
+    //     if(posX == 0) {
+    //         directionX = "R"
+    //     }
+    //     posY = (directionY == "B") ? posY + 1 : posY - 1
+    //     if(posY == 400) {
+    //         directionY = "T"
+    //     }
+    //     if(posY == 0) {
+    //         directionY = "B"
+    //     }
+    //     //posY+= 1
+    //     // carre.style.transform = "translateX("+pos+"px)"
+    //     // carre.style.transform = "translateY("+pos+"px)"
+    //     carre.style.transform = "translate("+posX+"px, "+posY+"px)"
+    // },vitesse)
+    mouvBallon(vitesse, posX, posY, directionX, directionY)
+})
+
+function mouvBallon(vitesse, posX, posY, directionX, directionY) {
+    setTimeout(() => {
         posX = (directionX == "R") ? posX + 1 : posX - 1 
-        if(posX == 600) {
+        if(posX == 700) {
             directionX = "L"
+            vitesse = vitesse-5
         }
         if(posX == 0) {
             directionX = "R"
+            vitesse = vitesse-5
         }
         posY = (directionY == "B") ? posY + 1 : posY - 1
         if(posY == 400) {
             directionY = "T"
+            vitesse = vitesse-5
         }
         if(posY == 0) {
             directionY = "B"
+            vitesse = vitesse-5
         }
         //posY+= 1
         // carre.style.transform = "translateX("+pos+"px)"
         // carre.style.transform = "translateY("+pos+"px)"
         carre.style.transform = "translate("+posX+"px, "+posY+"px)"
-    },vitesse)
-})
+        mouvBallon(vitesse, posX, posY, directionX, directionY)
+    }, vitesse)
+}
 
 
 //Utilisation d'un settimeout

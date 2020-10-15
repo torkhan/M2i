@@ -14,6 +14,7 @@ const rightArrow = document.querySelector(".right")
 
 leftArrow.addEventListener('click', arrowClick)
 rightArrow.addEventListener('click', arrowClick)
+
 let numeroImage = 1
 function slider() {
     pos = (direction == "R") ? pos - decalage : pos + decalage
@@ -21,14 +22,13 @@ function slider() {
     if(pos ==  -1 * decalage * (images.length-1)) {
         direction = "L"
     }
-    if(pos == 0) {
-        direction = "R"
-        
+    else if(pos == 0) {
+        direction = "R"   
     }
     enfant.style.transform = "translateX("+pos+"px)"
 }
 
-//setInterval(slider, 3000)
+setInterval(slider, 3000)
 
 function arrowClick(e) {
     //On déclare une variable pour stocker la valeur de la transformation

@@ -1,9 +1,10 @@
 const div = document.querySelector(".timer")
 //setInterval => une fonction qui permet d'executer une fonction à interval régulier 
 let compteur = 0
-setInterval(()=> {
-    div.innerText = ++compteur
-},1000)
+// setInterval(()=> {
+//     div.innerText = ++compteur
+// },1000)
+
 
 //Animer un carré
 const carre = document.querySelector('.carre')
@@ -36,3 +37,16 @@ btn.addEventListener('click',function(e) {
         carre.style.transform = "translate("+posX+"px, "+posY+"px)"
     },vitesse)
 })
+
+
+//Utilisation d'un settimeout
+let timer= 1001
+const notreSetInterval= function () {
+    timer = timer - 50
+    setTimeout(() => {
+        div.innerText = ++compteur
+        if(compteur < 3000)
+            notreSetInterval()
+    },timer)    
+}
+notreSetInterval()

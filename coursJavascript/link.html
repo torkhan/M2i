@@ -12,14 +12,28 @@
     <div class="container">
         <div class="row">
             <div class="col nav">
-                <a href="google">Lien vers google</a>
-                <a href="facebook">Lien vers facebook</a>
+                <!-- <a href="google">Lien vers google</a>
+                <a href="facebook">Lien vers facebook</a> -->
             </div>
         </div>
         <div class="row">
             <div class="col content">
 
             </div>
+        </div>
+
+        <div class="row">
+            <form id="monForm" class="col" method="post">
+                <div class="row m-1">
+                    <input class="col form-control" name="titre" type="text" placeholder="titre Lien" />
+                </div>
+                <div class="row m-1">
+                    <input class="col form-control" name="contenu" type="text" placeholder="Contenu du lien" />
+                </div>
+                <div class="row m-1">
+                    <button type="submit" class="col btn btn-warning">Valider</button>
+                </div>
+            </form>
         </div>
     </div>
     <script src='link.js'></script>

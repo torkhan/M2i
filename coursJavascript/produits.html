@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='produits.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <header class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="liste-produits">
+                    Liste produits
+                </a></li>
+                <li class="nav-item"><a href="form-produits">
+                    Formulaire
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="container liste-produits">
+        <div class="row">
+
+        </div>
+    </section>
+    <section class="container form-produits">
+        <div class="row">
+            <form class="col">
+                <div class="row m-1">
+                    <input type="text" class="form-control col" placeholder="Titre du produit" name="titre" />
+                </div>
+                <div class="row m-1">
+                    <input type="text" class="form-control col" placeholder="Url image produit" name="image" />
+                </div>
+                <div class="row m-1">
+                    <input type="number" class="form-control col" placeholder="Prix du produit" name="prix" />
+                </div>
+                <div class="row m-1">
+                    <textarea class="col form-control" name="description" placeholder="Description du produit"></textarea>
+                </div>
+                <div class="row m-1">
+                    <button type="submit" class="form-control btn col btn-primary">Valider</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src='produits.js'></script>
+</body>
+</html>

@@ -1,7 +1,18 @@
-const data = {
-    google : "contenu de la page google",
-    facebook : "contenu de la page facebook"
-}
+// const data = {
+//     google : "contenu de la page google",
+//     facebook : "contenu de la page facebook"
+// }
+
+const data = [
+    {
+        titre : "",
+        prix : "",
+        image : ""
+    },
+    {
+
+    }
+]
 
 const content = document.querySelector(".content")
 const link = document.querySelector(".nav")

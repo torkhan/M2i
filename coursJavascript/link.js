@@ -29,6 +29,38 @@ monForm.addEventListener('submit',function(e) {
     //recuperer le contenu du champ titre
     const champTitre = document.querySelector("input[name='titre']")
     const champContenu = document.querySelector("input[name='contenu']")
-    data[champTitre.value] = champContenu.value
-    link.innerHTML+= `<a href='${champTitre.value}'>${champContenu.value}</a>`
+    content.innerHTML  =""
+    const errors = []
+    if(testChampInput(champTitre)) {
+        errors.push("Erreur titre")
+    }
+    if(testChampInput(champContenu)){
+        errors.push("Erreur contenu")
+    }
+    if(errors.length == 0) {
+        data[champTitre.value] = champContenu.value
+        link.innerHTML+= `<a href='${champTitre.value}'>${champTitre.value}</a>`
+    }
+    else {
+        let contenuError = "<div class='alert alert-danger'>"
+        for(let e of errors) {
+            contenuError +="<div>"+e+"</div>"
+        }
+        contenuError+= "</div>"
+        content.innerHTML = contenuError
+    }
+   
+})
+
+function testChampInput(champ) {
+    if(champ.value == '') {
+        champ.classList.add("error")
+        return true
+    }
+    return false
+}
+
+//supprimer les bordures après changement dans un champ
+monForm.addEventListener('keyup', function(e) {
+    e.target.classList.remove("error")
 })

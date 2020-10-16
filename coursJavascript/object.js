@@ -21,7 +21,7 @@
 // console.log(p1.prenom)
 
 //Definir des objets avec des classes
-class personne {
+class Personne {
     constructor(n,p) {
         this.nom = n,
         this.prenom = p
@@ -33,8 +33,8 @@ class personne {
     }
 }
 
-const p1 = new personne("toto", "tata")
-const p2 = new personne("titi", "minet")
+const p1 = new Personne("toto", "tata")
+const p2 = new Personne("titi", "minet")
 
 p1.afficher()
 

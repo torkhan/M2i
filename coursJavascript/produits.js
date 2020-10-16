@@ -5,6 +5,12 @@
  let produits = []
 
  let compteur = 0
+
+ /**
+  * Permet de stocker l'identifiant du produit à modifier, si valeur est à undefined, le formulaire ajoutera un produit
+  */
+ let editProductId = undefined
+ 
  /**
   * Créer une fonction pour ajouter un produit dans notre tableau de produits
   */
@@ -18,6 +24,19 @@
         }
         //produits.push(produit)
         produits = [produit, ...produits]
+  }
+
+/**
+ * Une fonction qui permet de modifier un produit dans le tableau des produits en fonction de l'identifiant stocké
+ * la variable editProductId
+ */
+  const modifierProduit = (titre, prix, description, image) => {
+      const produitAEdite = produits.find(p => p.id == editProductId)
+      produitAEdite.titre = titre
+      produitAEdite.prix = prix
+      produitAEdite.image = image
+      produitAEdite.description = description
+      document.querySelector('.btn-submit').innerText = "Valider"
   }
 
   /**
@@ -45,14 +64,17 @@
                     <div class='col'>
                         <button data-id='${produit.id}' class='btn btn-danger btn-delete'>Supprimer</button>
                     </div>
+                    <div class='col'>
+                        <button data-id='${produit.id}' class='btn btn-info btn-edit'>Modifier</button>
+                    </div>
                 </div>
           </div>`
       }
   }
+
  /**
   * Fonction pour vider les champs du formulaire
   */
-
   const clearForm = () => {
       //on vide les champs titre, image, prix => qui sont des inputs
       const inputFields = document.querySelectorAll('input')
@@ -74,8 +96,16 @@
         const titre = document.querySelector('input[name="titre"]').value
         const prix = document.querySelector('input[name="prix"]').value
         const image = document.querySelector('input[name="image"]').value
-        const description = document.querySelector('textarea[name="description"]').value
-        ajouterProduit(titre, prix, description, image)
+        const description = document.querySelector('textarea[name="description"]').value  
+        //Si editProductId est à undefined on ajoute un nouveau produit   
+        if(editProductId == undefined) {
+            ajouterProduit(titre, prix, description, image)
+        }
+        //Si editProductId contient l'identifiant d'un produit alors on modifie ce produit
+        else {
+            modifierProduit(titre, prix, description, image)
+            editProductId = undefined
+        }
         afficherProduits()
         clearForm()
     })
@@ -113,6 +143,17 @@ const displayByClass = (classe) => {
     }
   })
 
+  //Fonction pour remplir notre formulaire avec les informations d'un produit
+
+  const remplirForm = (produit) => {
+    document.querySelector('input[name="titre"]').value = produit.titre
+    document.querySelector('input[name="prix"]').value = produit.prix
+    document.querySelector('input[name="image"]').value = produit.image
+    document.querySelector('textarea[name="description"]').value = produit.description
+    document.querySelector('.btn-submit').innerText = "Modifier"
+    editProductId = produit.id
+  }
+
   //Selectionner la grille des produits
   const gridProduits = document.querySelector(".liste-produits .row")
 
@@ -130,7 +171,17 @@ const displayByClass = (classe) => {
         //event.target.parentNode.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode.parentNode)
         deleteFromDom(event.target, 3)
     }
+    //Clique sur le bouton modifier
+    else if(event.target.classList.contains("btn-edit")) {
+        const id = event.target.getAttribute("data-id")
+        const produit = produits.find(p=>p.id == id)
+        remplirForm(produit)
+        hideSections()
+        displayByClass("form-produits")
+    }
   }
+
+
 
   //Ecouter un clique à l'interieur de la grille des produits
   gridProduits.addEventListener('click',clickGridProduits)

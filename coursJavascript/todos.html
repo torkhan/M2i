@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body class="container">
+    <header class="row">
+        <h1 class="col text-center">Todos List</h1>
+    </header>
+    <section class="row justify-centent-center">
+        <div class="col">
+            <div class="row m-1">
+                <h2 class="col">Add tasks</h2>
+            </div>
+            <form class="row m-1" id="formTask">
+                <input type="text" name="task" class="col-8 form-control" />
+                <button class="col-4 btn btn-info">Add</button>
+            </form>
+        </div>
+    </section>
+    <div class="row m-1">
+        <h2 class="col">Liste todos</h2>
+    </div>
+    <div class="container content-todos">
+        <section class="row">
+            <div class="col liste-todos">
+                <!-- Affichage des todos -->
+            </div>
+        </section>
+        <div class="row m-1">
+            <h2 class="col">Completed Todos</h2>
+        </div>
+        <section class="row">
+            <div class="col completed-todos">
+                <!-- Affichage des completed todos -->
+            </div>
+        </section>
+    </div>
+    
+    <script src='todos.js'></script>    
+</body>
+</html>

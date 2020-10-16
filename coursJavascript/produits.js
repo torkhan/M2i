@@ -201,4 +201,6 @@ const displayByClass = (classe) => {
      }while(compteur != level+1)
      parent.removeChild(enfant)
  }
+
+
  

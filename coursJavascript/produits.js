@@ -125,7 +125,10 @@ const displayByClass = (classe) => {
         const id = event.target.getAttribute("data-id")
         //supprimer le produit
         produits = produits.filter(p=> p.id!=id)
-        afficherProduits()
+        //afficherProduits()
+        //remonter jusqu'au parent du produit et ensuite supprimer uniquement ce produit du dom
+        //event.target.parentNode.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode.parentNode)
+        deleteFromDom(event.target, 3)
     }
   }
 
@@ -133,3 +136,17 @@ const displayByClass = (classe) => {
   gridProduits.addEventListener('click',clickGridProduits)
  startForm()
  hideSections()
+
+
+ function deleteFromDom(element, level)  {
+     let compteur = 1 
+     let parent = element.parentNode
+     let enfant  = element.parentNode
+     do {
+        if(compteur < level)
+            enfant = enfant.parentNode
+        parent = parent.parentNode 
+        compteur++    
+     }while(compteur != level+1)
+     parent.removeChild(enfant)
+ }

@@ -4,7 +4,7 @@
 
  let produits = []
 
- 
+ let compteur = 0
  /**
   * Créer une fonction pour ajouter un produit dans notre tableau de produits
   */
@@ -13,7 +13,8 @@
             titre : titre,
             prix : prix,
             description : description,
-            image : image
+            image : image,
+            id : ++compteur
         }
         //produits.push(produit)
         produits = [produit, ...produits]
@@ -38,6 +39,11 @@
                 <div class='row'>
                     <div class='col'>
                     ${produit.prix}
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <button data-id='${produit.id}' class='btn btn-danger btn-delete'>Supprimer</button>
                     </div>
                 </div>
           </div>`
@@ -105,9 +111,25 @@ const displayByClass = (classe) => {
         hideSections()
         displayByClass(href)
     }
-    
   })
 
+  //Selectionner la grille des produits
+  const gridProduits = document.querySelector(".liste-produits .row")
 
+
+  //Fonction à executer à chaque clique à l'interieur de la grille des produits
+  const clickGridProduits = (event) => {
+    //Clique sur les boutons pour supprimer des produits
+    if(event.target.classList.contains("btn-delete")) {
+        //Récuperer l'identifiant du produit dans l'attribut data-id 
+        const id = event.target.getAttribute("data-id")
+        //supprimer le produit
+        produits = produits.filter(p=> p.id!=id)
+        afficherProduits()
+    }
+  }
+
+  //Ecouter un clique à l'interieur de la grille des produits
+  gridProduits.addEventListener('click',clickGridProduits)
  startForm()
  hideSections()

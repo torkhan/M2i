@@ -22,9 +22,6 @@ function App() {
         </a>
       </header>
       <Home />
-      <Home />
-      <Home />
-      <Home />
     </div>
   );
 }

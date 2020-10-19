@@ -17,7 +17,7 @@ export class Home extends Component {
     render() {
         return (
             //jsx
-            <div>
+            <div> 
                 <h1>Bonjour</h1>
                 {/* <Personne nom="abadi" prenom="ihab" adresse="tourcoing" />
                 <Personne nom="toto" prenom="tata" />

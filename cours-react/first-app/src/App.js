@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Home } from './Home';
+import { ListeContact } from './listeContact';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <Home />
+      <ListeContact />
     </div>
   );
 }

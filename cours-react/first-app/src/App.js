@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Home } from './Home';
 import { ListeContacts } from './contacts/ListeContacts';
+import { Compteur } from './Compteur';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       </header>
       <Home /> */}
       <ListeContacts />
+      <Compteur />
     </div>
   );
 }

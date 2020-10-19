@@ -4,6 +4,7 @@ import './App.css';
 import { Home } from './Home';
 import { ListeContacts } from './contacts/ListeContacts';
 import { Compteur } from './Compteur';
+import { HelloWorld } from './HelloWorld';
 
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
         </a>
       </header>
       <Home /> */}
-      <ListeContacts />
-      <Compteur />
+      {/* <ListeContacts />
+      <Compteur /> */}
+      <HelloWorld />
     </div>
   );
 }

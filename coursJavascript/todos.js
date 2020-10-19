@@ -5,6 +5,7 @@ class ToDo {
         this.compteurTodo = 0
         this.editTodoId = undefined
     }
+
     /**
      * Méthode de logique metier
      */
@@ -13,7 +14,7 @@ class ToDo {
             id : ++this.compteurTodo,
             task : task
         }
-        console.log(todo)
+        //console.log(todo)
         this.todos = [todo,...this.todos]
     }
 
@@ -84,7 +85,7 @@ class ToDo {
                 this.addTodo(valueTask)
                 this.displayTodos()
             }else {
-                console.log(valueTask)
+                //console.log(valueTask)
                 this.editTodo(valueTask)
                 this.displayTodos()
                 this.displayCompletedTodos()
@@ -111,7 +112,7 @@ class ToDo {
             }
             else if(e.target.classList.contains("btn-delete")) {
                 const id = e.target.getAttribute("data-id")
-                console.log(e.target.getAttribute("data-id"))
+                //console.log(e.target.getAttribute("data-id"))
                 this.deleteTodo(id)
                 this.displayTodos()
                 this.displayCompletedTodos()

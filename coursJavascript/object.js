@@ -33,6 +33,12 @@ class Personne {
     }
 }
 
+class Etudiant extends Personne {
+    constructor(n,p) {
+        super(n,p)
+    }
+}
+
 const p1 = new Personne("toto", "tata")
 const p2 = new Personne("titi", "minet")
 

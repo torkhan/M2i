@@ -4,7 +4,9 @@ import './App.css';
 import { Home } from './Home';
 import { ListeContacts } from './contacts/ListeContacts';
 import { Compteur } from './Compteur';
-import { Bonjour } from './bonjour';
+import { HelloWorld } from './HelloWorld';
+import { Personne } from './Personne';
+import { PlusMoins } from './exoPlusMoins';
 
 
 function App() {
@@ -25,10 +27,13 @@ function App() {
         </a>
       </header>
       <Home /> */}
-      <ListeContacts />
-      <Compteur />
-      <Bonjour />
-      
+      {/* <ListeContacts />
+      <Compteur /> */}
+      {/* <HelloWorld /> */}
+      <Personne nom="abadi" prenom="ihab" adresse="tourcoing" />
+      <Personne nom="toto" prenom="tata" adresse="tourcoing" />
+      <Personne />
+      <PlusMoins/>
     </div>
   );
 }

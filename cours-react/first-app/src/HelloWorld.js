@@ -21,6 +21,7 @@ export class HelloWorld extends Component {
             bonjours : newTabBonjour
         })
     }
+    
     render() { 
         return (
             <div>

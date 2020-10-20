@@ -4,6 +4,10 @@ import './App.css';
 import { Home } from './Home';
 import { ListeContacts } from './contacts/ListeContacts';
 import { Compteur } from './Compteur';
+<<<<<<< HEAD
+=======
+import { HelloWorld } from './HelloWorld';
+>>>>>>> master
 import { Bonjour } from './bonjour';
 
 
@@ -25,9 +29,16 @@ function App() {
         </a>
       </header>
       <Home /> */}
+<<<<<<< HEAD
       <ListeContacts />
       <Compteur />
       <Bonjour />
+=======
+      {/* <ListeContacts />
+      <Compteur /> */}
+      <HelloWorld />
+      
+>>>>>>> master
     </div>
   );
 }

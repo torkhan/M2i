@@ -6,7 +6,7 @@ import { ListeContacts } from './contacts/ListeContacts';
 import { Compteur } from './Compteur';
 import { HelloWorld } from './HelloWorld';
 import { Personne } from './Personne';
-import { PlusMoins } from './exoPlusMoins';
+import { PlusOuMoin } from './PlusOuMoin';
 
 
 function App() {
@@ -30,10 +30,10 @@ function App() {
       {/* <ListeContacts />
       <Compteur /> */}
       {/* <HelloWorld /> */}
-      <Personne nom="abadi" prenom="ihab" adresse="tourcoing" />
+      {/* <Personne nom="abadi" prenom="ihab" adresse="tourcoing" />
       <Personne nom="toto" prenom="tata" adresse="tourcoing" />
-      <Personne />
-      <PlusMoins/>
+      <Personne /> */}
+      <PlusOuMoin/>
     </div>
   );
 }

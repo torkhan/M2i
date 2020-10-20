@@ -5,6 +5,7 @@ import { Home } from './Home';
 import { ListeContacts } from './contacts/ListeContacts';
 import { Compteur } from './Compteur';
 import { HelloWorld } from './HelloWorld';
+import { Bonjour } from './bonjour';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       {/* <ListeContacts />
       <Compteur /> */}
       <HelloWorld />
+      
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { Home } from './Home';
 import { ListeContacts } from './contacts/ListeContacts';
 import { Compteur } from './Compteur';
 import { HelloWorld } from './HelloWorld';
-import { Bonjour } from './bonjour';
+import { Personne } from './Personne';
 
 
 function App() {
@@ -28,8 +28,10 @@ function App() {
       <Home /> */}
       {/* <ListeContacts />
       <Compteur /> */}
-      <HelloWorld />
-      
+      {/* <HelloWorld /> */}
+      <Personne nom="abadi" prenom="ihab" adresse="tourcoing" />
+      <Personne nom="toto" prenom="tata" adresse="tourcoing" />
+      <Personne />
     </div>
   );
 }

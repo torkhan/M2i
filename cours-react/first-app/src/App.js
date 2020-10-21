@@ -1,14 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Home } from './Home';
+// import { Home } from './Home';
 import { ListeContacts } from './contacts/ListeContacts';
 import { Compteur } from './Compteur';
 import { HelloWorld } from './HelloWorld';
-import { Personne } from './Personne';
 import { PlusOuMoin } from './PlusOuMoin';
 import { Pendu } from './Pendu';
-import { Personnes } from './Personnes';
+import { ContainerPersonnes } from './Personnes/ContainerPersonnes';
 import { Todos } from './Todos';
 
 
@@ -38,8 +37,9 @@ function App() {
       <Personne /> */}
       {/* <PlusOuMoin/> */}
       {/* <Pendu /> */}
-      <Personnes></Personnes>
+      {/* <Personnes></Personnes> */}
       {/* <Todos></Todos> */}
+      <ContainerPersonnes></ContainerPersonnes>
     </div>
   );
 }

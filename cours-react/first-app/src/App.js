@@ -9,7 +9,7 @@ import { Personne } from './Personne';
 import { PlusOuMoin } from './PlusOuMoin';
 import { Pendu } from './Pendu';
 import { Personnes } from './Personnes';
-import { Todo2react } from './todo2react';
+import { Todos } from './Todos';
 
 
 function App() {
@@ -39,9 +39,7 @@ function App() {
       {/* <PlusOuMoin/> */}
       {/* <Pendu /> */}
       {/* <Personnes></Personnes> */}
-      
-
-
+      <Todos></Todos>
     </div>
   );
 }

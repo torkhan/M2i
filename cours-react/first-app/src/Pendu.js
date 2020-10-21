@@ -11,7 +11,6 @@ export class Pendu extends Component {
             boutons : []
          }
     }
-
     start = () => {
         //trouver un  mot aléatoire
         const rand = Math.floor(Math.random() * (this.state.mots.length-1))
@@ -69,6 +68,7 @@ export class Pendu extends Component {
             alert("Bravo vous avez gagné")
         }
     }
+
     renderButton = () => {
         let boutons = []
         for(let c = 65 ; c <= 90; c++){

@@ -44,8 +44,8 @@ export class Personnes extends Component {
                     <div className="col">
                         <h1 className="row m-1">Liste des personnes</h1>
                         {/* on affiche les personnes ajoutées par le formulaire */}
-                        {this.state.personnes.map(personne => (
-                            <div className="row m-1"><div className="col">{personne.nom}</div><div className="col">{personne.prenom}</div></div>
+                        {this.state.personnes.map((personne, index) => (
+                            <div className="row m-1" key={index}><div className="col">{personne.nom}</div><div className="col">{personne.prenom}</div></div>
                         ))}
                     </div>
                 </div>

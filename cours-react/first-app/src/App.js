@@ -9,6 +9,7 @@ import { Personne } from './Personne';
 import { PlusOuMoin } from './PlusOuMoin';
 import { Pendu } from './Pendu';
 import { Personnes } from './Personnes';
+import { Todos } from './Todos';
 
 
 function App() {
@@ -37,7 +38,8 @@ function App() {
       <Personne /> */}
       {/* <PlusOuMoin/> */}
       {/* <Pendu /> */}
-      <Personnes></Personnes>
+      {/* <Personnes></Personnes> */}
+      <Todos></Todos>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export class Pendu extends Component {
             motCache : undefined,
             masque : undefined,
             nombreClickMax: 10,
-            boutons : [] 
+            boutons : []
          }
     }
 
@@ -23,13 +23,23 @@ export class Pendu extends Component {
         this.setState({
             motCache : tmpMot,
             masque : tmpMasque,
+            nombreClickMax : 10
         })
         this.renderButton()
     }
 
     clickButton = (e) => {
-        e.target.classList.remove("btn-info")
-        e.target.classList.add('btn-danger')
+        // e.target.classList.remove("btn-info")
+        // e.target.classList.add('btn-danger')
+        let tmpBoutons = [...this.state.boutons]
+        for(let bouton of tmpBoutons) {
+            if(bouton.valueButton == e.target.innerText) {
+                bouton.classCss = "col btn btn-danger"
+            }
+        }
+        this.setState({
+            boutons : [...tmpBoutons]
+        })
         this.searchValue(e.target.innerText)
     }
 
@@ -62,9 +72,9 @@ export class Pendu extends Component {
     renderButton = () => {
         let boutons = []
         for(let c = 65 ; c <= 90; c++){
-        boutons.push(<button onClick={this.clickButton} className="col btn btn-info">{String.fromCharCode(c)}</button>)
-        }
-        console.log(boutons)
+            // boutons.push(<button onClick={this.clickButton} className="btn col btn-info">{String.fromCharCode(c)}</button>)
+            boutons.push({valueButton : String.fromCharCode(c), classCss : "btn col btn-info"})
+        }  
         this.setState({
             boutons:[...boutons]
         })
@@ -85,7 +95,7 @@ export class Pendu extends Component {
                 </div>
                 <div className="row m-1">
                     {/* on affiche les boutons */}
-                    {this.state.boutons}
+                    {this.state.boutons.map(b=>(<button onClick={this.clickButton} className={b.classCss}>{b.valueButton}</button>))}
                 </div>
                 <div className="row m-1">
                     <div className="col">

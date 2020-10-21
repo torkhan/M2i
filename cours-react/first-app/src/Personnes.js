@@ -8,7 +8,8 @@ export class Personnes extends Component {
             personne : {
                 nom : '',
                 prenom : ''
-            }
+            },
+            indexPersonne : 0
         }
     }
 
@@ -20,17 +21,26 @@ export class Personnes extends Component {
         })
     }
 
-    ajouter = () => {
-        let tmpPersonnes = [this.state.personne, ...this.state.personnes]
+    ajouter = () => {   
+        let lastIndex = this.state.indexPersonne + 1
+        let tmpPersonne = {...this.state.personne, id : lastIndex}
+        let tmpPersonnes = [tmpPersonne, ...this.state.personnes]
         this.setState({
             personnes : [...tmpPersonnes],
             personne : {
                 nom : '',
                 prenom : ''
-            }
+            },
+            indexPersonne : lastIndex
         })
     }
-
+    deletePersonne = (id) => {
+        //supprimer la personne avec cet id dans la liste des personnes dans le state et on met à jour le state
+        let tmpPersonnes = this.state.personnes.filter(p => p.id != id)
+        this.setState({
+            personnes : [...tmpPersonnes]
+        })
+    }
     render() { 
         return ( 
             <div className="container">
@@ -45,7 +55,11 @@ export class Personnes extends Component {
                         <h1 className="row m-1">Liste des personnes</h1>
                         {/* on affiche les personnes ajoutées par le formulaire */}
                         {this.state.personnes.map((personne, index) => (
-                            <div className="row m-1" key={index}><div className="col">{personne.nom}</div><div className="col">{personne.prenom}</div></div>
+                            <div className="row m-1" key={personne.id}>
+                                <div className="col">{personne.nom}</div>
+                                <div className="col">{personne.prenom}</div>
+                                <button className="col btn btn-danger" onClick={(e) => {this.deletePersonne(personne.id)}}>Supprimer</button>
+                            </div>
                         ))}
                     </div>
                 </div>

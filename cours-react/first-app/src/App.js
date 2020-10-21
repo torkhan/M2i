@@ -9,6 +9,8 @@ import { PlusOuMoin } from './PlusOuMoin';
 import { Pendu } from './Pendu';
 import { ContainerPersonnes } from './Personnes/ContainerPersonnes';
 import { Todos } from './Todos';
+import { FormulaireTodoArchi } from './todoArchi/formulaireTodoArchi';
+import { ContainerTodoArchi } from './todoArchi/containerTodoAchi';
 
 
 function App() {
@@ -39,7 +41,10 @@ function App() {
       {/* <Pendu /> */}
       {/* <Personnes></Personnes> */}
       {/* <Todos></Todos> */}
-      <ContainerPersonnes></ContainerPersonnes>
+      {/* <ContainerPersonnes></ContainerPersonnes> */}
+      <ContainerTodoArchi />
+      
+
     </div>
   );
 }

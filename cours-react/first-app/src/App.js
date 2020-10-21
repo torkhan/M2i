@@ -7,6 +7,7 @@ import { Compteur } from './Compteur';
 import { HelloWorld } from './HelloWorld';
 import { Personne } from './Personne';
 import { PlusOuMoin } from './PlusOuMoin';
+import { Pendu } from './Pendu';
 
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
       {/* <Personne nom="abadi" prenom="ihab" adresse="tourcoing" />
       <Personne nom="toto" prenom="tata" adresse="tourcoing" />
       <Personne /> */}
-      <PlusOuMoin/>
+      {/* <PlusOuMoin/> */}
+      <Pendu />
     </div>
   );
 }

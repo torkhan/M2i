@@ -38,8 +38,8 @@ function App() {
       <Personne /> */}
       {/* <PlusOuMoin/> */}
       {/* <Pendu /> */}
-      {/* <Personnes></Personnes> */}
-      <Todos></Todos>
+      <Personnes></Personnes>
+      {/* <Todos></Todos> */}
     </div>
   );
 }

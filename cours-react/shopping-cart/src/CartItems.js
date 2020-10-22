@@ -7,7 +7,7 @@ class CartItems extends Component {
     }
     render() { 
         return ( 
-            <div className="col-8">
+            <div className="col">
                 {this.props.carts.map(item=>(
                     <Item updateQty={this.props.updateQty} deleteFromCart={this.props.deleteFromCart} key={item.product.id} item={item}></Item>
                 ))}

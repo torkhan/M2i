@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ContainerTodo from './todosComponent/ContainerTodo';
+import { ContainerTodo } from './todosComponent/ContainerTodo';
 
 function App() {
   return (
     <div className="App">
-      <ContainerTodo/>
+      <ContainerTodo />
+      
     </div>
   );
 }

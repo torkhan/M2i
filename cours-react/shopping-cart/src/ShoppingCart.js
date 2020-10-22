@@ -51,16 +51,17 @@ class ShoppingCart extends Component {
     }
 
     addToCart = (product) => { 
-        let tmpCarts = [...this.state.carts]
-        let item = tmpCarts.find(i=>i.product.id == product.id)
-        if(item != undefined) {
-            item.qty++
-        }
-        else {
-            item = {
-                product : product, qty : 1
+        let tmpCarts = []
+        let found = false
+        for(let item of this.state.carts) {
+            if(item.product.id == product.id) {
+                item.qty++
+                found = true
             }
-            tmpCarts = [item, ...tmpCarts]
+            tmpCarts.push({...item})
+        }
+        if(!found) {
+            tmpCarts.push({product : product, qty : 1})
         }
         this.setState({
             carts : [...tmpCarts],

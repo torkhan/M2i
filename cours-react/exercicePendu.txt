@@ -16,3 +16,5 @@ la liste des boutons de lettres est remplacée par un seul bouton qui permet de 
 Comptez le nombre d’essais et affichez-le au fur et à mesure. 
 Vous pouvez décider d’interdire un nouvel essai d’une lettre, ou au contraire compter double un essai d’une lettre déjà tentée (si vous indiquiez visuellement qu’elle l’était). 
 Pour calculer plutôt un score, vous pouvez compter 2 points pour une lettre présente, -1 pour une absente, et -2 pour une lettre retentée, par exemple.
+
+test

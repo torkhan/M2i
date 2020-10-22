@@ -20,7 +20,11 @@ class Item extends Component {
 
             <div className="row">
                 <div className="col-3">
+<<<<<<< HEAD
                     <img src={this.props.item.product.image} />
+=======
+                    <img style={{width:'100%'}} src={this.props.item.product.image} />
+>>>>>>> 13dee712f55c75cfd396b8774420e89f9462e901
                 </div>
                 <div className="col-3">
                     {this.props.item.product.title}
@@ -28,7 +32,7 @@ class Item extends Component {
                 <div className="col-1">
                     {this.props.item.product.price} €
                 </div>
-                <input className="col-2 form-control" type="number" onChange={this.changeQty} defaultValue={this.props.item.qty} />
+                <input className="col-2 form-control" min="1" max="100" type="number" onChange={this.changeQty} defaultValue={this.props.item.qty} />
                 <div className="col-1">
                     {this.state.qty * this.props.item.product.price}
                 </div>

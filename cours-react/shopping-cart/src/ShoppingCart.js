@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import CartItems from './CartItems';
+import ListProducts from './ListProducts';
+import "./ShoppingCart.css"
 
 class ShoppingCart extends Component {
     constructor(props) {
@@ -9,6 +11,7 @@ class ShoppingCart extends Component {
             { id: 2, title: 'product 3', price: 30, image: 'https://picsum.photos/200' },
             { id: 3, title: 'product 2', price: 45, image: 'https://picsum.photos/200' },
         ]
+<<<<<<< HEAD
         const carts = [
             { product: products[0], qty: 2 },
             { product: products[1], qty: 3 },
@@ -22,6 +25,13 @@ class ShoppingCart extends Component {
             ],
             carts: carts,
             total: this.updateTotal(carts)
+=======
+
+        this.state = {
+            products: products,
+            carts: [],
+            total: 0
+>>>>>>> 13dee712f55c75cfd396b8774420e89f9462e901
         }
     }
 
@@ -99,10 +109,29 @@ class ShoppingCart extends Component {
         </div>
     }
 
+    addToCart = (product) => { 
+        let tmpCarts = [...this.state.carts]
+        let item = tmpCarts.find(i=>i.product.id == product.id)
+        if(item != undefined) {
+            item.qty++
+        }
+        else {
+            item = {
+                product : product, qty : 1
+            }
+            tmpCarts = [item, ...tmpCarts]
+        }
+        this.setState({
+            carts : [...tmpCarts],
+            total : this.updateTotal(tmpCarts)
+        })
+    }
+
     render() {
         return (
             <div className="container">
                 <div className="row">
+<<<<<<< HEAD
                     <div className="col-7">
                         <h1>Produits</h1>
                         <input className="col form-control m-3"onChange={this.recherche} type="text" placeholder="Rechercher"></input>
@@ -118,6 +147,23 @@ class ShoppingCart extends Component {
                     </div>
                 </div>
                 </div>
+=======
+                    {/* On affiche les produits */}
+                    <ListProducts addToCart={this.addToCart} products={this.state.products}></ListProducts>
+                    <div className="col-4">
+                        <div className="row">
+                            {/* ici on affichera les produits du panier */}
+                            <CartItems updateQty={this.updateQty} deleteFromCart={this.deleteFromCart} carts={this.state.carts}></CartItems>
+                            <div className="col-4">
+                                Total : {this.state.total}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+>>>>>>> 13dee712f55c75cfd396b8774420e89f9462e901
         );
     }
 }

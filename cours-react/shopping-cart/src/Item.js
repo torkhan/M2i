@@ -33,11 +33,7 @@ class Item extends Component {
                     {this.props.item.qty * this.props.item.product.price}
                 </div>
                 <div className="col-2">
-<<<<<<< HEAD
-                    <button className="col btn btn-danger" onClick={() => {
-=======
                 <i class="fas fa-trash" onClick={()=> {
->>>>>>> c8d7135653cd85969610ae18a1b7ecfe853f2a42
                         this.props.deleteFromCart(this.props.item.product.id)
                     }}></i>
                 </div>

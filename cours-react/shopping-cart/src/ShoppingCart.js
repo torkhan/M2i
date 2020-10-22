@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import CartItems from './CartItems';
 import ListProducts from './ListProducts';
+import Search from './Search';
 import "./ShoppingCart.css"
 
 class ShoppingCart extends Component {
     constructor(props) {
         super(props);
-        const products = [
+        this.products = [
             { id: 1, title: 'product 1', price: 10, image: 'https://picsum.photos/200' },
             { id: 2, title: 'product 3', price: 30, image: 'https://picsum.photos/200' },
             { id: 3, title: 'product 2', price: 45, image: 'https://picsum.photos/200' },
         ]
 
         this.state = {
-            products: products,
+            products: this.products,
             carts: [],
             total: 0
         }
@@ -68,19 +69,25 @@ class ShoppingCart extends Component {
             total : this.updateTotal(tmpCarts)
         })
     }
-
+    search = (text) => {
+        const tmpProducts = this.products.filter(p => p.title.includes(text))
+        this.setState({
+            products : tmpProducts
+        })
+    }
     render() {
         return (
             <div className="container">
+                <Search search={this.search}></Search>
                 <div className="row">
                     {/* On affiche les produits */}
                     <ListProducts addToCart={this.addToCart} products={this.state.products}></ListProducts>
                     <div className="col-4">
-                        <div className="row">
+                        <div className="row align-items-center justify-centent-center">
                             {/* ici on affichera les produits du panier */}
                             <CartItems updateQty={this.updateQty} deleteFromCart={this.deleteFromCart} carts={this.state.carts}></CartItems>
-                            <div className="col-4">
-                                Total : {this.state.total}
+                            <div className="col-12 h2 text-left">
+                                Total : {this.state.total} €
                             </div>
                         </div>
                     </div>

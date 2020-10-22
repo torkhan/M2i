@@ -11,27 +11,11 @@ class ShoppingCart extends Component {
             { id: 2, title: 'product 3', price: 30, image: 'https://picsum.photos/200' },
             { id: 3, title: 'product 2', price: 45, image: 'https://picsum.photos/200' },
         ]
-<<<<<<< HEAD
-        const carts = [
-            { product: products[0], qty: 2 },
-            { product: products[1], qty: 3 },
-            { product: products[2], qty: 5 },
-        ]
-        this.state = {
-            products: [
-                { id: 1, title: 'product 1', price: 10, image: 'https://picsum.photos/200' },
-                { id: 2, title: 'product 3', price: 30, image: 'https://picsum.photos/200' },
-                { id: 3, title: 'product 2', price: 45, image: 'https://picsum.photos/200' },
-            ],
-            carts: carts,
-            total: this.updateTotal(carts)
-=======
 
         this.state = {
             products: products,
             carts: [],
             total: 0
->>>>>>> 13dee712f55c75cfd396b8774420e89f9462e901
         }
     }
 
@@ -131,23 +115,6 @@ class ShoppingCart extends Component {
         return (
             <div className="container">
                 <div className="row">
-<<<<<<< HEAD
-                    <div className="col-7">
-                        <h1>Produits</h1>
-                        <input className="col form-control m-3"onChange={this.recherche} type="text" placeholder="Rechercher"></input>
-                        {/* <CartItems updateQty={this.updateQty} deleteFromCart={this.deleteFromCart} carts={this.state.carts}></CartItems> */}
-                    </div>
-                    <div className="col-5">
-                    <h1>Panier</h1>
-                        {/* ici on affichera les produits du panier */}
-                        <CartItems updateQty={this.updateQty} deleteFromCart={this.deleteFromCart} carts={this.state.carts}></CartItems>
-                        <div className="col-4">
-                            Total : {this.state.total}
-                        </div>
-                    </div>
-                </div>
-                </div>
-=======
                     {/* On affiche les produits */}
                     <ListProducts addToCart={this.addToCart} products={this.state.products}></ListProducts>
                     <div className="col-4">
@@ -163,7 +130,6 @@ class ShoppingCart extends Component {
 
 
             </div>
->>>>>>> 13dee712f55c75cfd396b8774420e89f9462e901
         );
     }
 }

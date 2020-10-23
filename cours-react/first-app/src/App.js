@@ -9,6 +9,7 @@ import { PlusOuMoin } from './PlusOuMoin';
 import { Pendu } from './Pendu';
 import { ContainerPersonnes } from './Personnes/ContainerPersonnes';
 import { Todos } from './Todos';
+import {BrowserRouter, Link, Route, Switch} from "react-router-dom"
 
 
 function App() {
@@ -39,7 +40,33 @@ function App() {
       {/* <Pendu /> */}
       {/* <Personnes></Personnes> */}
       {/* <Todos></Todos> */}
-      <ContainerPersonnes></ContainerPersonnes>
+      {/* <ContainerPersonnes></ContainerPersonnes> */}
+      <BrowserRouter>
+        <header className="container-fluid">
+          <nav className="container">
+              <ul className="row">
+                <li className="col">
+                    <Link to='/'>Todo</Link>
+                </li>
+                <li className="col">
+                    <Link to='/pendu'>Pendu</Link>
+                </li>
+                <li className="col">
+                    <Link to='/plusoumoin'>Plus ou moin</Link>
+                </li>
+                <li className="col">
+                    <Link to='/personnes'>Personnes</Link>
+                </li>
+              </ul>
+          </nav>
+          <Switch>
+            <Route path="/" exact component={Todos}></Route>
+            <Route path="/pendu" component={Pendu}></Route>
+            <Route path="/plusoumoin" component={PlusOuMoin}></Route>
+            <Route path="/personnes" component={ContainerPersonnes}></Route>
+          </Switch>
+        </header>
+      </BrowserRouter>
     </div>
   );
 }

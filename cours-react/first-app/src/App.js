@@ -10,6 +10,7 @@ import { Pendu } from './Pendu';
 import { ContainerPersonnes } from './Personnes/ContainerPersonnes';
 import { Todos } from './Todos';
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom"
+import Login from './Login';
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
             <Route path="/pendu" exact component={Pendu}></Route>
             <Route path="/pendu/:id" component={Pendu}></Route>
             <Route path="/plusoumoin" component={PlusOuMoin}></Route>
+            <Route path="/login" component={Login} ></Route>
             <Route path="/personnes" component={ContainerPersonnes}></Route>
           </Switch>
         </header>

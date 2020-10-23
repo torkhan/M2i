@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { FormulairePersonne } from './FormulairePersonne';
 import { ListePersonnes } from './ListePersonnes';
-
+import {personnes, indexPersonne, modifierIndexPersonne} from "./../services/DataService"
 export class ContainerPersonnes extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            personnes : [],
-            indexPersonne : 0
+            personnes : personnes,
+            indexPersonne : indexPersonne
         }
     }
 
@@ -15,6 +15,9 @@ export class ContainerPersonnes extends Component {
         let lastIndex = this.state.indexPersonne + 1
         let tmpPersonne = {...personne, id : lastIndex}
         let tmpPersonnes = [tmpPersonne, ...this.state.personnes]
+        //On ajoute la personne dans le tableau de personnes dans le service dataService
+        personnes.push(tmpPersonne)
+        modifierIndexPersonne(lastIndex)
         this.setState({
             personnes : [...tmpPersonnes],
             indexPersonne : lastIndex

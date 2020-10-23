@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import "./Pendu.css"
+import { getPersonneById } from './services/DataService';
 export class Pendu extends Component {
     constructor(props) {
         super(props);
@@ -8,7 +9,8 @@ export class Pendu extends Component {
             motCache : undefined,
             masque : undefined,
             nombreClickMax: 10,
-            boutons : []
+            boutons : [],
+            joueur : getPersonneById(props.match.params.id)
          }
     }
     start = () => {
@@ -86,6 +88,14 @@ export class Pendu extends Component {
     render() { 
         return (  
             <div className="container">
+                {this.state.joueur != undefined ? 
+                (<div className="row m-1 justify-content-center">
+                    <div className="col">
+                        {this.state.joueur.nom} {this.state.joueur.prenom}
+                    </div>
+                </div>)
+                : null
+            }
                 <div className="row m-1 justify-content-center">
                     <button onClick={this.start} className="col btn btn-success">Démarrer</button>
                 </div>

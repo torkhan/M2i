@@ -67,7 +67,7 @@ function App() {
           </Switch>
         </header>
       </BrowserRouter>
-    </div>
+    </div> 
   );
 }
 

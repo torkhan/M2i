@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { FormulairePersonne } from './FormulairePersonne';
 import { ListePersonnes } from './ListePersonnes';
-import {personnes, indexPersonne, modifierIndexPersonne} from "./../services/DataService"
+import {personnes, indexPersonne, modifierIndexPersonne, isLogged} from "./../services/DataService"
 export class ContainerPersonnes extends Component {
     constructor(props) {
         super(props)
         this.state = {
             personnes : personnes,
             indexPersonne : indexPersonne
+        }
+        if(!isLogged) {
+            props.history.push('/login')
         }
     }
 

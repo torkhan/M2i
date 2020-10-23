@@ -61,7 +61,8 @@ function App() {
           </nav>
           <Switch>
             <Route path="/" exact component={Todos}></Route>
-            <Route path="/pendu" component={Pendu}></Route>
+            <Route path="/pendu" exact component={Pendu}></Route>
+            <Route path="/pendu/:id" component={Pendu}></Route>
             <Route path="/plusoumoin" component={PlusOuMoin}></Route>
             <Route path="/personnes" component={ContainerPersonnes}></Route>
           </Switch>

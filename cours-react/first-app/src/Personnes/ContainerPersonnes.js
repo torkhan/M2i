@@ -50,7 +50,7 @@ export class ContainerPersonnes extends Component {
                             </div>
                         ))}
                     </div> */}
-                    <ListePersonnes personnes={this.state.personnes} deletePersonne={this.deletePersonne}></ListePersonnes>
+                    <ListePersonnes history={this.props.history} personnes={this.state.personnes} deletePersonne={this.deletePersonne}></ListePersonnes>
                 </div>
             </div>
          );

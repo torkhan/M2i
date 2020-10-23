@@ -11,7 +11,7 @@ export class ListePersonnes extends Component {
             <h1 className="row m-1">Liste des personnes</h1>
             {/* on affiche les personnes ajoutées par le formulaire */}
             {this.props.personnes.map((personne, index) => (
-                <Personne deletePersonne={this.props.deletePersonne} personne={personne} key={index}></Personne>
+                <Personne history={this.props.history} deletePersonne={this.props.deletePersonne} personne={personne} key={index}></Personne>
             ))}
         </div>
         );

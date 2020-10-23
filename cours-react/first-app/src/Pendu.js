@@ -66,6 +66,8 @@ export class Pendu extends Component {
     testWin = (newMasque) => {
         if(newMasque == this.state.motCache) {
             alert("Bravo vous avez gagné")
+            //Redirection vers le jeu du plus ou moin
+            this.props.history.push('/plusoumoin')
         }
     }
 

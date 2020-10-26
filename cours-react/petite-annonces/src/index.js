@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Navigation from './components/Navigation';
 import './index.css';
+import 'antd/dist/antd.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

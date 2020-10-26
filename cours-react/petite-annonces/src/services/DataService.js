@@ -22,8 +22,12 @@ export const ajouterAnnonce = (annonce) => {
 }
 
 export const search = (filtre) => {
-    const tmpAnnonces = annonces.filter(a => a.titre.includes(filtre) || a.description.includes(filtre))
-    return tmpAnnonces
+    return new Promise((resolve, reject) => {
+        const tmpAnnonces = annonces.filter(a => a.titre.includes(filtre) || a.description.includes(filtre))
+        setTimeout(() => {
+            resolve(tmpAnnonces)
+        }, 3000)
+    })
 }
 
 export const getAnnonceById = (id) => {

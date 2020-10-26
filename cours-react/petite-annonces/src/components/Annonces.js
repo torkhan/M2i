@@ -6,6 +6,9 @@ class Annonces extends Component {
         super(props);
         this.state = {  }
     }
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return this.state != nextState || this.props != nextProps
+    }
     render() { 
         return ( 
             <div className="container">

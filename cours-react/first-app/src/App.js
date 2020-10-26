@@ -9,8 +9,8 @@ import { PlusOuMoin } from './PlusOuMoin';
 import { Pendu } from './Pendu';
 import { ContainerPersonnes } from './Personnes/ContainerPersonnes';
 import { Todos } from './Todos';
-import { FormulaireTodoArchi } from './todoArchi/formulaireTodoArchi';
-import { ContainerTodoArchi } from './todoArchi/containerTodoAchi';
+import {BrowserRouter, Link, Route, Switch} from "react-router-dom"
+import Login from './Login';
 
 
 function App() {
@@ -42,10 +42,35 @@ function App() {
       {/* <Personnes></Personnes> */}
       {/* <Todos></Todos> */}
       {/* <ContainerPersonnes></ContainerPersonnes> */}
-      <ContainerTodoArchi />
-      
-
-    </div>
+      <BrowserRouter>
+        <header className="container-fluid">
+          <nav className="container">
+              <ul className="row">
+                <li className="col">
+                    <Link to='/'>Todo</Link>
+                </li>
+                <li className="col">
+                    <Link to='/pendu'>Pendu</Link>
+                </li>
+                <li className="col">
+                    <Link to='/plusoumoin'>Plus ou moin</Link>
+                </li>
+                <li className="col">
+                    <Link to='/personnes'>Personnes</Link>
+                </li>
+              </ul>
+          </nav>
+          <Switch>
+            <Route path="/" exact component={Todos}></Route>
+            <Route path="/pendu" exact component={Pendu}></Route>
+            <Route path="/pendu/:id" component={Pendu}></Route>
+            <Route path="/plusoumoin" component={PlusOuMoin}></Route>
+            <Route path="/login" component={Login} ></Route>
+            <Route path="/personnes" component={ContainerPersonnes}></Route>
+          </Switch>
+        </header>
+      </BrowserRouter>
+    </div>  
   );
 }
 

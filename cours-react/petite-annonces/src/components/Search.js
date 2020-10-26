@@ -10,6 +10,7 @@ class Search extends Component {
     changeSearch = (e) => {
         this.props.search(e.target.value)
     } 
+    
     render() { 
         return ( 
             <div className="container">

@@ -39,7 +39,7 @@ class Home extends Component {
             this.setState({
                 loading : false
             })
-        })
+        }) 
     }
 
     render() { 

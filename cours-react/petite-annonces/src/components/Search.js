@@ -14,7 +14,7 @@ class Search extends Component {
         return ( 
             <div className="container">
                 <div className="row">
-                    <input className="col form-control" onChange={this.changeSearch} type="text" placeholder="Votre recherche" />
+                    <input className="col form-control" onChange={this.changeSearch} type="search" placeholder="Votre recherche" />
                 </div>
             </div>
          );

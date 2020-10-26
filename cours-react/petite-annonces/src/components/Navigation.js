@@ -5,6 +5,7 @@ import FormAnnonce from "./FormAnnonce"
 import Favoris from "./Favoris"
 import DetailAnnonce from "./DetailAnnonce"
 import Menu from './Menu';
+import Login from './Login';
 class Navigation extends Component {
     constructor(props) {
         super(props);
@@ -21,6 +22,8 @@ class Navigation extends Component {
                         <Route path="/addAnnonce" component={FormAnnonce}></Route>
                         <Route path="/favoris" component={Favoris}></Route>
                         <Route path="/detail/:id" component={DetailAnnonce}></Route>
+                        <Route path = "/login" exact component={Login} ></Route>
+                        <Route path = "/login/:url" component={Login} ></Route>
                     </Switch>
                 </div>
             </BrowserRouter>

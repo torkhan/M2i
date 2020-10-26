@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { favoris } from '../services/DataService';
+import { favoris, isLogged } from '../services/DataService';
 import Annonces from './Annonces';
 
 class Favoris extends Component {
     constructor(props) {
         super(props);
+        if(!isLogged) {
+            this.props.history.push("/login/favoris")
+        }
         this.state = { 
             annonces : favoris
          }

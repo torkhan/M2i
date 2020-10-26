@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { ajouterAnnonce } from '../services/DataService';
+import { ajouterAnnonce, isLogged } from '../services/DataService';
 
 class FormAnnonce extends Component {
     constructor(props) {
         super(props);
+        if(!isLogged) {
+            this.props.history.push("/login/addAnnonce")
+        }
         this.state = { 
             nombreImages : 1,
             annonce : {

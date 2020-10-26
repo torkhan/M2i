@@ -46,7 +46,7 @@ class Home extends Component {
         return ( 
             <div className="container">
                 {/* <Search search={this.search}></Search> */}
-                <Search onChange={this.search} placeholder="Votre recherche" enterButton="Search" size="large" loading={this.state.loading} />
+                <Search onChange={(e) => {this.search(e.target.value)}} placeholder="Votre recherche" enterButton="Search" size="large" loading={this.state.loading} />
                 {this.state.loading ? <div style={{textAlign: 'center'}}><Spin /></div> : <Annonces annonces={this.state.annonces}></Annonces>}
                 
             </div>

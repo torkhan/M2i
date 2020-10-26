@@ -16,7 +16,7 @@ class Menu extends Component {
                     <li className="nav-item m-2 ml-auto">
                        <Link to='/addAnnonce'>Ajouter une annonce</Link> 
                     </li>
-                    <li className="nav-item m-2 ml-auto">
+                    <li className="nav-item m-2 ">
                        <Link to='/favoris'>Favoris</Link> 
                     </li>
                 </ul>

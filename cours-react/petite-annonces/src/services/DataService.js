@@ -9,3 +9,8 @@ export const ajouterAnnonce = (annonce) => {
     annonces.push(tmpAnnonce)
     compteurAnnonce++
 }
+
+export const search = (filtre) => {
+    const tmpAnnonces = annonces.filter(a => a.titre.includes(filtre) || a.description.includes(filtre))
+    return tmpAnnonces
+}

@@ -33,7 +33,7 @@ function App() {
       <Home /> */}
       {/* <ListeContacts />
       <Compteur /> */}
-      {/* <HelloWorld /> */}
+      <HelloWorld />
       {/* <Personne nom="abadi" prenom="ihab" adresse="tourcoing" />
       <Personne nom="toto" prenom="tata" adresse="tourcoing" />
       <Personne /> */}
@@ -42,7 +42,7 @@ function App() {
       {/* <Personnes></Personnes> */}
       {/* <Todos></Todos> */}
       {/* <ContainerPersonnes></ContainerPersonnes> */}
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <header className="container-fluid">
           <nav className="container">
               <ul className="row">
@@ -69,7 +69,7 @@ function App() {
             <Route path="/personnes" component={ContainerPersonnes}></Route>
           </Switch>
         </header>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>  
   );
 }

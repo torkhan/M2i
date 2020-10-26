@@ -4,34 +4,28 @@ export class HelloWorld extends Component {
     constructor(props) {
         super(props);
         this.state = {  
-            bonjours: []
+           loading : true
         }
+        console.log("[construction]")
     }
 
-    ajouter = () => {
-        this.setState({
-            bonjours : [...this.state.bonjours, "bonjour tout le monde"]
-        })
+    componentDidMount() {
+        console.log("[end first render]")
+        setTimeout(() => {
+            this.setState({
+                loading : false
+            })
+        },3000)
     }
-
-    supprimer = () => {
-        let newTabBonjour = [...this.state.bonjours]
-        newTabBonjour.splice(newTabBonjour.length-1,1)
-        this.setState({
-            bonjours : newTabBonjour
-        })
-    }
-    
-    render() { 
+    render() {
+        console.log("[dom render]")
         return (
             <div>
-                <div>
-                    <button onClick={this.ajouter}>Ajouter</button>
-                    <button onClick={this.supprimer}>Supprimer</button>
-                </div>
-                {this.state.bonjours.map((b,index)=>(
-                    <div>{b} : {index}</div>
-                ))}
+                {this.state.loading ? 
+                (<div>Loading...</div>)
+                : 
+                (<div>HelloWorld</div>)
+            }
             </div>
         );
     }

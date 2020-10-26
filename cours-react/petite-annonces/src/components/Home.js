@@ -24,7 +24,7 @@ class Home extends Component {
 
     search = (text) => {
         this.setState({
-            annonces : search(text)
+            annonces : search(text)       
         })
     }
     render() { 

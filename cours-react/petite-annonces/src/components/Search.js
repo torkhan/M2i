@@ -4,12 +4,14 @@ class Search extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            loading:true
 
          }
     }
     changeSearch = (e) => {
         this.props.search(e.target.value)
     } 
+    
     render() { 
         return ( 
             <div className="container">

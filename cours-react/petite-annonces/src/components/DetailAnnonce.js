@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
 import { ajouterAuFavoris, dejaFavoris, getAnnonceById, retirerDesFavoris } from '../services/DataService';
+import { Carousel } from 'antd';
+
+const contentStyle = {
+    height: '200px',
+    width : '700px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+  };
 
 class DetailAnnonce extends Component {
     constructor(props) {
         super(props);
         this.state = {
             annonce: getAnnonceById(props.match.params.id),
-            isFavoris : dejaFavoris(props.match.params.id)
+            isFavoris: dejaFavoris(props.match.params.id)
         }
     }
     ajouterFavoris = () => {
         ajouterAuFavoris(this.state.annonce.id)
         this.setState({
-            isFavoris : true
+            isFavoris: true
         })
     }
 
     retirerFavoris = () => {
         retirerDesFavoris(this.state.annonce.id)
         this.setState({
-            isFavoris : false
+            isFavoris: false
         })
     }
     render() {
@@ -28,14 +38,14 @@ class DetailAnnonce extends Component {
                 {this.state.annonce != undefined ?
                     (
                         <div className="container">
+                            <Carousel autoplay>
+                                    {this.state.annonce.images.map((image, index) =>
+                                        (<div key={index}><img style={contentStyle} src={image} /></div>)
+                                    )}
+                                </Carousel>
                             <div className="row m-1">
                                 <h1 className="col">{this.state.annonce.titre}</h1>
                                 <span className="col-2 h2">{this.state.annonce.prix} €</span>
-                            </div>
-                            <div className="row m-1">
-                                {this.state.annonce.images.map((image, index) =>
-                                    (<div className="col" key={index}><img src={image} /></div>)
-                                )}
                             </div>
                             <div className="row m-1">
                                 <div className="col">
@@ -43,13 +53,13 @@ class DetailAnnonce extends Component {
                                 </div>
                             </div>
                             <div className="row m-1">
-                                    {this.state.isFavoris ? 
+                                {this.state.isFavoris ?
                                     (
                                         <button onClick={this.retirerFavoris} className="btn col btn-danger">Retirer des favoris</button>
-                                    ) : 
+                                    ) :
                                     (
                                         <button onClick={this.ajouterFavoris} className="btn col btn-warning">Ajouter aux favoris</button>
-                                    )    
+                                    )
                                 }
                             </div>
                         </div>

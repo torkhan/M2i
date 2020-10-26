@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { changeIsLogged, login } from './../services/DataService';
-
+import {notification} from "antd"
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -30,7 +30,15 @@ class Login extends Component {
             }
         }
         else {
-            alert("Erreur de login")
+            notification.open({
+                message: 'Erreur login',
+                description:
+                  'Merci de corriger les informations de login',
+                onClick: () => {
+                  console.log('Notification Clicked!');
+                },
+                duration : 2
+              });
         }
     }
     render() { 

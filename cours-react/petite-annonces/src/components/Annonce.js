@@ -6,6 +6,9 @@ class Annonce extends Component {
         super(props);
         this.state = {  }
     }
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return this.state != nextState || this.props != nextProps
+    }
     render() { 
         const annonce = this.props.annonce
         return ( 

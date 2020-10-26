@@ -1,5 +1,13 @@
 
 export const annonces = []
+
+export const getAnnonces = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(annonces)
+        },3000)
+    })
+}
 let compteurAnnonce = 1
 
 

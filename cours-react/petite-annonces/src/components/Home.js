@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
-import { annonces, search } from '../services/DataService';
+import { annonces, getAnnonces, search } from '../services/DataService';
 import Annonces from './Annonces';
 import Search from './Search';
+import {Spin} from "antd"
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            annonces : annonces
+            loading : true,
+            annonces : []
          }
+    }
+
+    componentDidMount() {
+        getAnnonces().then((result) => {
+            this.setState({
+                loading : false,
+                annonces : result
+            })
+        })
     }
 
     search = (text) => {
@@ -20,7 +31,8 @@ class Home extends Component {
         return ( 
             <div className="container">
                 <Search search={this.search}></Search>
-                <Annonces annonces={this.state.annonces}></Annonces>
+                {this.state.loading ? <div style={{textAlign: 'center'}}><Spin /></div> : <Annonces annonces={this.state.annonces}></Annonces>}
+                
             </div>
          );
     }

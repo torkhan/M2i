@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { HelloWorld } from './HelloWorld';
 
 ReactDOM.render(
-  <HelloWorld></HelloWorld>,
+  <App></App>,
   document.querySelector('#root')
 );
 

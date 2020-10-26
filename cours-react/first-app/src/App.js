@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 // import { Home } from './Home';
@@ -12,66 +12,33 @@ import { Todos } from './Todos';
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom"
 import Login from './Login';
 
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      hidden : false
+    }
+  }
 
-function App() {
-  return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Home /> */}
-      {/* <ListeContacts />
-      <Compteur /> */}
-      {/* <HelloWorld /> */}
-      {/* <Personne nom="abadi" prenom="ihab" adresse="tourcoing" />
-      <Personne nom="toto" prenom="tata" adresse="tourcoing" />
-      <Personne /> */}
-      {/* <PlusOuMoin/> */}
-      {/* <Pendu /> */}
-      {/* <Personnes></Personnes> */}
-      {/* <Todos></Todos> */}
-      {/* <ContainerPersonnes></ContainerPersonnes> */}
-      <BrowserRouter>
-        <header className="container-fluid">
-          <nav className="container">
-              <ul className="row">
-                <li className="col">
-                    <Link to='/'>Todo</Link>
-                </li>
-                <li className="col">
-                    <Link to='/pendu'>Pendu</Link>
-                </li>
-                <li className="col">
-                    <Link to='/plusoumoin'>Plus ou moin</Link>
-                </li>
-                <li className="col">
-                    <Link to='/personnes'>Personnes</Link>
-                </li>
-              </ul>
-          </nav>
-          <Switch>
-            <Route path="/" exact component={Todos}></Route>
-            <Route path="/pendu" exact component={Pendu}></Route>
-            <Route path="/pendu/:id" component={Pendu}></Route>
-            <Route path="/plusoumoin" component={PlusOuMoin}></Route>
-            <Route path="/login" component={Login} ></Route>
-            <Route path="/personnes" component={ContainerPersonnes}></Route>
-          </Switch>
-        </header>
-      </BrowserRouter>
-    </div>  
-  );
+  componentDidMount() {
+    // this.setState({
+    //   appState : false
+    // })
+  }
+
+  hide = () => {
+    this.setState({
+      hidden : true
+    })
+  }
+  render() {
+    return (
+      <div className="App">
+        <button onClick={this.hide}>Hide HelloWorld</button>
+        {this.state.hidden ? null : <HelloWorld></HelloWorld>}
+      </div>  
+    );
+  }
 }
 
 export default App;

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { firstPromise } from './services/ApiService';
 
 export class HelloWorld extends Component {
     constructor(props) {
@@ -26,7 +27,11 @@ export class HelloWorld extends Component {
                 loading : false
             })
         },3000)
-
+        firstPromise.then((res) => {
+            alert(res)
+        }).catch((err) => {
+            alert(err)
+        })
         console.log("[end first render]")
     }
 

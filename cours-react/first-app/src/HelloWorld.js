@@ -4,34 +4,62 @@ export class HelloWorld extends Component {
     constructor(props) {
         super(props);
         this.state = {  
-            bonjours: []
+           loading : true,
+           compteur : 1
         }
+        console.log("[construction]")
     }
-
-    ajouter = () => {
+    tick = () => {
+        const numeroTick = setInterval(() => {
+            this.setState({
+                compteur : this.state.compteur + 1
+            })
+        }, 1000) 
         this.setState({
-            bonjours : [...this.state.bonjours, "bonjour tout le monde"]
+            numeroTick : numeroTick
         })
     }
+    componentDidMount() {
+        this.tick()
+        setTimeout(() => {
+            this.setState({
+                loading : false
+            })
+        },3000)
 
-    supprimer = () => {
-        let newTabBonjour = [...this.state.bonjours]
-        newTabBonjour.splice(newTabBonjour.length-1,1)
-        this.setState({
-            bonjours : newTabBonjour
-        })
+        console.log("[end first render]")
     }
-    
-    render() { 
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log('[update]')
+        console.log("ancien state : " )
+        console.log(this.state)
+        console.log("nouveau state : " )
+        console.log(nextState)
+        console.log("ancien props : " )
+        console.log(this.props)
+        console.log("nouveau props : " )
+        console.log(nextProps)
+        // if(this.state != nextState || this.props != nextProps) {
+        //     return true
+        // }
+        // return false
+        return this.state != nextState || this.props != nextProps
+    }
+    componentWillUnmount() {
+        console.log('[unmount component]')
+        clearInterval(this.state.numeroTick)
+    }
+    render() {
+        console.log("[dom render]")
         return (
             <div>
-                <div>
-                    <button onClick={this.ajouter}>Ajouter</button>
-                    <button onClick={this.supprimer}>Supprimer</button>
-                </div>
-                {this.state.bonjours.map((b,index)=>(
-                    <div>{b} : {index}</div>
-                ))}
+                {this.state.loading ? 
+                (<div>Loading...</div>)
+                : 
+                (<div>HelloWorld</div>)
+            }
+            {this.state.compteur}
             </div>
         );
     }

@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
+import { favoris } from '../services/DataService';
+import Annonces from './Annonces';
 
 class Favoris extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            annonces : favoris
+         }
     }
     render() { 
-        return ( <div>
-            Favoris
-        </div> );
+        return ( 
+        <div className="container">
+            <Annonces annonces={this.state.annonces}></Annonces>
+        </div> 
+        );
     }
 }
  

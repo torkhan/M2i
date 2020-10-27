@@ -21,6 +21,14 @@ class Home extends Component {
             })
         })
     }
+<<<<<<< HEAD
+=======
+
+    
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return this.state != nextState || this.props != nextProps
+    }
+>>>>>>> 0c3401b32539613b58d76cc58996fddd60343158
 
     search = (text) => {
         this.setState({

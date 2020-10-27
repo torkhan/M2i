@@ -29,6 +29,7 @@ class Menu extends Component {
                         <Link to='/favoris'>Favoris</Link>
                     </li>
                     
+                    
                     <li className="nav-iem m-2">
                         <select onChange={this.changeSelectTheme}><option>light</option><option>dark</option></select>
                     </li>

@@ -13,7 +13,7 @@ class Menu extends Component {
         }
     }
     changeSelectTheme = (e) => {
-        this.props.changeTheme(e.target.value)
+        this.props.changeTheme(e.target.value) 
     }
     render() {
         return (

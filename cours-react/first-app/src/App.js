@@ -9,14 +9,16 @@ import { PlusOuMoin } from './PlusOuMoin';
 import { Pendu } from './Pendu';
 import { ContainerPersonnes } from './Personnes/ContainerPersonnes';
 import { Todos } from './Todos';
-import {BrowserRouter, Link, Route, Switch} from "react-router-dom"
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom"
 import Login from './Login';
+import { ColorContext } from './ColorContext';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      hidden : false
+      hidden: false,
+      colorText: 'red'
     }
   }
 
@@ -28,15 +30,29 @@ class App extends Component {
 
   hide = () => {
     this.setState({
-      hidden : true
+      hidden: true
+    })
+  }
+  changeColor = (e) => {
+    this.setState({
+      colorText : e.target.value
     })
   }
   render() {
     return (
       <div className="App">
         <button onClick={this.hide}>Hide HelloWorld</button>
-        {this.state.hidden ? null : <HelloWorld></HelloWorld>}
-      </div>  
+        <div>
+          <select onChange={this.changeColor}>
+            <option>red</option>
+            <option>green</option>
+            <option>blue</option>
+          </select>
+        </div>
+        <ColorContext.Provider value={this.state.colorText}>
+          {this.state.hidden ? null : <HelloWorld></HelloWorld>}
+        </ColorContext.Provider>
+      </div>
     );
   }
 }

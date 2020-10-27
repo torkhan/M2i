@@ -6,6 +6,9 @@ class Menu extends Component {
         super(props);
         this.state = {}
     }
+    changeSelectTheme = (e) => {
+        this.props.changeTheme(e.target.value)
+    }
     render() {
         return (
             <div className="navbar navbar-expand-lg navbar-light bg-light">
@@ -18,6 +21,9 @@ class Menu extends Component {
                     </li>
                     <li className="nav-item m-2 ">
                        <Link to='/favoris'>Favoris</Link> 
+                    </li>
+                    <li className="nav-iem m-2">
+                        <select onChange={this.changeSelectTheme}><option>light</option><option>dark</option></select>
                     </li>
                 </ul>
             </div>

@@ -19,6 +19,7 @@ class DetailAnnonce extends Component {
             isFavoris: dejaFavoris(props.match.params.id)
         }
     }
+    
     ajouterFavoris = () => {
         ajouterAuFavoris(this.state.annonce.id)
         this.setState({

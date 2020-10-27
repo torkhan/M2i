@@ -22,6 +22,8 @@ class Home extends Component {
             })
         })
     }
+
+    
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return this.state != nextState || this.props != nextProps
     }

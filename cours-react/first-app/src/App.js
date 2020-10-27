@@ -12,6 +12,7 @@ import { Todos } from './Todos';
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom"
 import Login from './Login';
 import { ColorContext } from './ColorContext';
+import Countries from './Countries';
 
 class App extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.hide}>Hide HelloWorld</button>
+        {/* <button onClick={this.hide}>Hide HelloWorld</button>
         <div>
           <select onChange={this.changeColor}>
             <option>red</option>
@@ -51,7 +52,8 @@ class App extends Component {
         </div>
         <ColorContext.Provider value={this.state.colorText}>
           {this.state.hidden ? null : <HelloWorld></HelloWorld>}
-        </ColorContext.Provider>
+        </ColorContext.Provider> */}
+        <Countries ></Countries>
       </div>
     );
   }

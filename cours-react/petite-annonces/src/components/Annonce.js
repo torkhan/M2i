@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../Tools/ThemeContext';
 
 class Annonce extends Component {
+
+    static contextType = ThemeContext
     constructor(props) {
         super(props);
         this.state = {  }
@@ -12,7 +15,7 @@ class Annonce extends Component {
     render() { 
         const annonce = this.props.annonce
         return ( 
-            <div className="row m-1 justify-content-center align-items-center">
+            <div style={{color : this.context.color, backgroundColor : this.context.bgColor}} className="row m-1 justify-content-center align-items-center">
                 <div className="col-3">
                     <img src={annonce.images[0]} />
                 </div>

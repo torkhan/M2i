@@ -1,5 +1,13 @@
 
 export const annonces = []
+
+export const getAnnonces = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(annonces)
+        },3000)
+    })
+}
 let compteurAnnonce = 1
 
 
@@ -14,8 +22,12 @@ export const ajouterAnnonce = (annonce) => {
 }
 
 export const search = (filtre) => {
-    const tmpAnnonces = annonces.filter(a => a.titre.includes(filtre) || a.description.includes(filtre))
-    return tmpAnnonces
+    return new Promise((resolve, reject) => {
+        const tmpAnnonces = annonces.filter(a => a.titre.includes(filtre) || a.description.includes(filtre))
+        setTimeout(() => {
+            resolve(tmpAnnonces)
+        }, 3000)
+    })
 }
 
 export const getAnnonceById = (id) => {

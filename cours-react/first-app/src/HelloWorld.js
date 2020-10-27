@@ -1,14 +1,19 @@
 import React, {Component} from 'react';
+import { ColorContext } from './ColorContext';
+import SecondComponent from './SecondComponent';
 import { firstPromise } from './services/ApiService';
 
 export class HelloWorld extends Component {
+
+    static contextType = ColorContext
+
     constructor(props) {
         super(props);
         this.state = {  
-           loading : true,
+           loading : false,
            compteur : 1
         }
-        console.log("[construction]")
+        //console.log("[construction]")
     }
     tick = () => {
         const numeroTick = setInterval(() => {
@@ -21,18 +26,23 @@ export class HelloWorld extends Component {
         })
     }
     componentDidMount() {
-        this.tick()
-        setTimeout(() => {
-            this.setState({
-                loading : false
-            })
-        },3000)
-        firstPromise.then((res) => {
-            alert(res)
-        }).catch((err) => {
-            alert(err)
-        })
-        console.log("[end first render]")
+        //#region Cours cycle de vie component
+        // this.tick()
+        // setTimeout(() => {
+        //     this.setState({
+        //         loading : false
+        //     })
+        // },3000)
+        // firstPromise.then((res) => {
+        //     alert(res)
+        // }).catch((err) => {
+        //     alert(err)
+        // })
+        //  console.log("[end first render]")
+        //#endregion
+
+        //Récupérer la valeur du context
+       
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -56,15 +66,17 @@ export class HelloWorld extends Component {
         clearInterval(this.state.numeroTick)
     }
     render() {
-        console.log("[dom render]")
+        // console.log("[dom render]")
+        
         return (
             <div>
                 {this.state.loading ? 
                 (<div>Loading...</div>)
                 : 
-                (<div>HelloWorld</div>)
+                (<div style={{color : this.context}}>HelloWorld context : {this.context}</div>)
             }
             {this.state.compteur}
+                <SecondComponent></SecondComponent>
             </div>
         );
     }

@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState, useContext } from 'react';
 import { ColorContext } from './ColorContext';
 
 // class SecondComponent extends Component {
@@ -19,6 +19,7 @@ import { ColorContext } from './ColorContext';
 const SecondComponent = (props) => {
     const [nom, setNom] = useState('')
     const [firstLoading, setFirstLoading] = useState(true)
+    const valueContext = useContext(ColorContext)
     useEffect(()=> {
         console.log("test use effect didmount")
         //Si on modifie le state dans l'useEffect => erreur cyclique
@@ -32,7 +33,7 @@ const SecondComponent = (props) => {
         console.log("any component update")
     })
     return(
-        <div>
+        <div style={{color : valueContext}}>
             <div><input type="text" onChange={(e) => {
                 setNom(e.target.value)
                 // setLoading(!loading)

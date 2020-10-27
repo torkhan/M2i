@@ -24,8 +24,18 @@ class Home extends Component {
 
     search = (text) => {
         this.setState({
-            annonces : search(text)       
+            loading : true
         })
+        search(text).then((result) => {
+            this.setState({
+                annonces : result,
+                loading : false
+            })
+        }).catch(err=> {
+            this.setState({
+                loading : false
+            })
+        }) 
     }
     render() { 
         return ( 

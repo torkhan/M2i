@@ -76,7 +76,7 @@ export class HelloWorld extends Component {
                 (<div style={{color : this.context}}>HelloWorld context : {this.context}</div>)
             }
             {this.state.compteur}
-                <SecondComponent></SecondComponent>
+                <SecondComponent test="coucou"></SecondComponent>
             </div>
         );
     }

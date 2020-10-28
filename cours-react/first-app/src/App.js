@@ -14,11 +14,7 @@ import { BrowserRouter, Link, Route, Switch } from "react-router-dom"
 import Login from './Login';
 import { ColorContext } from './ColorContext';
 import Countries from './Countries';
-<<<<<<< HEAD
-import { ApiBook } from './apiBook';
-=======
 import ContainerBook from './book/ContainerBook';
->>>>>>> master
 
 class App extends Component {
   constructor(props) {
@@ -60,11 +56,7 @@ class App extends Component {
           {this.state.hidden ? null : <HelloWorld></HelloWorld>}
         </ColorContext.Provider> */}
         {/* <Countries ></Countries> */}
-<<<<<<< HEAD
-        <ApiBook></ApiBook>
-=======
         <ContainerBook></ContainerBook>
->>>>>>> master
       </div>
     );
   }

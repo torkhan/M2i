@@ -24,7 +24,7 @@ export class Personne extends Component {
     //         prenom : e.target.value
     //     })
     // }
-
+    
     changeField = (e) => {
         let tmpState = {...this.state}
         tmpState[e.target.getAttribute("name")] = e.target.value

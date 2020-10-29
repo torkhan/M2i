@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { BgColor } from './BgContext';
+
+
 
 // class Menu extends Component {
 //     constructor(props) {

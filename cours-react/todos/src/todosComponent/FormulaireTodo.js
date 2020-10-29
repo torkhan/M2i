@@ -1,4 +1,23 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
+export class FormulaireTodo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            task: ''
+         }
+    }
+
+    render() { 
+        return ( 
+            <div>
+                <input className="col form-control" placeholder="Entrez votre task"></input>
+            </div>
+         );
+    }
+}
+ 
+=======
 
 class FormulaireTodo extends Component {
     constructor(props) {
@@ -32,3 +51,4 @@ class FormulaireTodo extends Component {
 }
 
 export default FormulaireTodo;
+>>>>>>> master

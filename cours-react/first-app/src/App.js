@@ -15,6 +15,7 @@ import Login from './Login';
 import { ColorContext } from './ColorContext';
 import Countries from './Countries';
 import ContainerBook from './book/ContainerBook';
+import { RechercheNutriscore } from './nutriscore/rechercheNutriscore';
 
 class App extends Component {
   constructor(props) {
@@ -56,7 +57,8 @@ class App extends Component {
           {this.state.hidden ? null : <HelloWorld></HelloWorld>}
         </ColorContext.Provider> */}
         {/* <Countries ></Countries> */}
-        <ContainerBook></ContainerBook>
+        {/* <ContainerBook></ContainerBook> */}
+        <RechercheNutriscore></RechercheNutriscore>
       </div>
     );
   }

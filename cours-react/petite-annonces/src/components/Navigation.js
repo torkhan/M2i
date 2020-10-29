@@ -7,20 +7,6 @@ import DetailAnnonce from "./DetailAnnonce"
 import Menu from './Menu';
 import Login from './Login';
 import { ThemeContext } from '../Tools/ThemeContext';
-<<<<<<< HEAD
-import Annonces from './Annonces';
-class Navigation extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            theme: {
-                color: 'black',
-                bgColor: 'white'
-            }
-        }
-    }
-    changeTheme = (type) => {
-=======
 // class Navigation extends Component {
 //     constructor(props) {
 //         super(props);
@@ -79,7 +65,6 @@ const Navigation = (props) => {
     })
 
     const changeTheme = (type) => {
->>>>>>> master
         if (type == "dark") {
             setTheme({
                 color: 'white',
